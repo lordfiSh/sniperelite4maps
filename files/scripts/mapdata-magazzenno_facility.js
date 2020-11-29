@@ -85,19 +85,19 @@ window.mapdata_magazzenno_facility = {
 	module: [{
 		coords: [[-76.558,-58.271]],
 		label: $.t("sidebar.duty_poster") + $.t(": ") + $.t("f:duty_poster.label.1"),
-		popup: $.t("misc.officer") + $.t(" (Anton Gruber) ") +$.t("sidebar.position"),
+		popup: $.t("misc.officer") + $.t(" (Anton Gruber) ") +$.t("misc.position"),
 	},{
 		coords: [[-66.999,-48.340]],
 		label: $.t("sidebar.duty_poster") + $.t(": ") + $.t("f:duty_poster.label.0"),
-		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("sidebar.position"),
+		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("misc.position"),
 	},{
 		coords: [[-74.379,-92.373]],
 		label: $.t("sidebar.duty_poster") + $.t(": ") + $.t("f:duty_poster.label.0"),
-		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("sidebar.position"),
+		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("misc.position"),
 	},{
 		coords: [[-70.988,-140.186]],
 		label: $.t("sidebar.duty_poster") + $.t(": ") + $.t("f:duty_poster.label.0"),
-		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("sidebar.position"),
+		popup: $.t("misc.officer") + $.t(" (XXX) ") +$.t("misc.position"),
 	}],
 	
 	

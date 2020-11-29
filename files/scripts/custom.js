@@ -553,7 +553,7 @@ $(function() {
 	var backupData = function() {
 		var currentDate = new Date();
 		var formattedDate = currentDate.getFullYear()+'-'+((currentDate.getMonth()+1 < 10) ? '0' : '')+(currentDate.getMonth()+1)+'-'+((currentDate.getDate() < 10) ? '0' : '')+currentDate.getDate();
-		var backupFileName = 'hyperlightdrifter_map_backup_'+formattedDate+'.json';
+		var backupFileName = 'sniperelite4_map_backup_'+formattedDate+'.json';
 		if (confirm($.t('controls.backupSave', {fileName:backupFileName}))) {
 			if(!fileSaver) {
 				fileSaver = $.getScript('../files/scripts/FileSaver.min.js', function() {
