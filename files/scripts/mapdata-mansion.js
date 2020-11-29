@@ -2,7 +2,7 @@ window.map_path   = 'mansion';
 window.map_sWest  = L.latLng(-200, 800);
 window.map_nEast  = L.latLng(200, -400);
 window.map_center = [-50, -50];
-window.map_mZoom  = 5;
+window.map_mZoom  = 4;
 window.mapdata_mansion = {
 
 	// Deadeye

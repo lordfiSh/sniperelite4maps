@@ -2,7 +2,7 @@ window.map_path   = 'regilino_viaduct';
 window.map_sWest  = L.latLng(-200, 0);
 window.map_nEast  = L.latLng(0, -200);
 window.map_center = [-50, -50];
-window.map_mZoom  = 5;
+window.map_mZoom  = 4;
 window.mapdata_regilino_viaduct = {
 
 	// Deadeye
