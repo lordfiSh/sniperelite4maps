@@ -9,7 +9,7 @@ window.mapdata_san_celini_island_v2 = {
 	gearbit: [{
 		coords: [[-40.714,-153.809],[-83.278,-64.688],[-76.680,26.895]],
 		label: $.t("sidebar.deadeye"),
-		popup: $.t("z:stuff.desc.deadeye")
+		popup: $.t("")
 	}],
 	
 	//letter_from_home
@@ -155,11 +155,10 @@ window.mapdata_san_celini_island_v2 = {
 	}],
 	
 	//Montor Sound
-	// 
 	soundmask: [{
 		coords: [[-79.766,-74.355],[-72.342,-87.100],[-70.642,-58.447]],
 		label: $.t("sidebar.soundmask"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 	
 };
