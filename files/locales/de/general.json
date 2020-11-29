@@ -1,0 +1,75 @@
+{
+   "maps":{
+   },
+   "home":{
+     "tagline":"Inoffizielle Sniper Elite 4 Karte <br>(derzeit noch in Entwicklung)",
+     "resultsFound":"Ergebnis(se) gefunden.",
+     "searchPlaceholder":"Geben Sie Suchbegriffe ein..."
+   },
+   "notes":{
+     "label":"Bezeichnung:",
+     "title":"Titel:",
+     "note":"Notiz:",
+     "enterLabel":"Kartenbezeichnung eingeben...",
+     "enterTitle":"Geben Sie den Titel der Notiz ein...",
+     "enterText":"Geben Sie den Notiztext ein...",
+     "saveNote":"Notiz speichern",
+     "deleteNote":"Notiz löschen"
+   },
+   "sidebar":{
+      "gearbit":"DeadEye",
+      "gearbitdrop":"Letter From Home",
+      "key":"Last Letter",
+      "module":"Duty Poster",
+      "gun":"Letter To Home",
+      "outfit":"Misc. Docs",
+      "monolith":"Sniper Reports",
+	  	"last_letter": "Last Letter",
+		"chivo":"Chivo",
+		"soundmask":"Soundmask",
+		"star":"Primary Objective",
+		"sniper_reports": "Sniper Report",
+		"deadeye": "Deadeye",
+		"letter_to_home": "Letter to Home",
+		"duty_poster": "Duty Poster",
+		"misc_docs": "Misc Documents",
+		"letter_from_home": "Letters From Home"
+   },
+   "controls":{
+     "show":"Alle anzeigen",
+     "hide":"Alle ausblenden",
+     "showCounts":"Zähler anzeigen",
+     "hideCounts":"Zähler ausblenden",
+     "resetInvisible":"Ausgeblendetes zurücksetzen",
+     "resetInvisConfirm":"Dies wird alle ausgeblendete/verfolgte Marker auf ihren Standardzustand (sichtbar) zurücksetzen, sind Sie sicher?",
+     "helpFeatures":"Funktionen & Hilfe",
+     "credits":"Credits",
+     "backupSave":"Dies wird eine Sicherungskopie aller Karteneinstellungen herunterladen.\nDie Datei wird gespeichert als: __fileName__ \nBist du sicher?",
+     "backupLoad":"Einstellungen wiederherstellen:",
+     "backupLoadFail":"Wiederherstellung fehlgeschlagen ist, überprüfen Sie noch einmal Ihre Datei",
+     "backupLoadSuccess":"Datenwiederherstellung abgeschlossen!",
+     "backupHtmlFail":"Tut mir Leid.  Wiederherstellung ist nicht möglich.  Dieser Browser unterstützt kein HTML5-File-APIs."
+   },
+   "credits":{
+     "botCreated":"Erstellt von __lordfiSh__, lizensiert unter __license__",
+     "botHelp":"Mit Hilfe von __mcarver__ & anderen __contributors__. Für die vollständige Liste der verwendeten Javascript-Bibliotheken, __jsCredits__.",
+     "botAssets":"Sniper Elite Logo, Symbole, Karte &amp; Text sind Eigentum von __hm__"
+   },
+   "misc":{
+     "contribute":"In Arbeit! Hilfe wird begrüßt __link__",
+     "discuss":"Rückmeldungen, Vorschläge? Besprechen Sie auf __link__",
+     "helpTranslate":"Möchten Sie bei der Übersetzung mithelfen oder diese verbessern?",
+     "portraitWarn":"Die Karte lässt sich am besten im Landscape Modus betrachten",
+     "needhelp":" does this item need description? tell me at reddit",
+     "officer": "carried by a Officer",
+     "inf": "carried by a Infantry Unit",
+     "sniper": "carried by a Sniper",
+     "position": "Position may varry",
+     "duty_poster":"Operational Overview",
+     "letter":"Letter to ",
+     "memo":"Memo",
+     "desk":"on a desk",
+     "safe":"inside the Safe",
+     "mainmission": "(marker for authenticy playtrough, since you have nothing on your map)"
+   }
+ }
