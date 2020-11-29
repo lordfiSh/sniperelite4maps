@@ -154,7 +154,6 @@ window.mapdata_san_celini_island_v2 = {
 		popup: $.t("z:mission.desc.main2") +$.t("misc.mainmission")
 	}],
 	
-	//Montor Sound
 	soundmask: [{
 		coords: [[-79.766,-74.355],[-72.342,-87.100],[-70.642,-58.447]],
 		label: $.t("sidebar.soundmask"),

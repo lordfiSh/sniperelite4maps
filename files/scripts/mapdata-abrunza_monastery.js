@@ -171,12 +171,10 @@ window.mapdata_abrunza_monastery = {
 		popup: $.t("e:mission.desc.main2")
 	}],
 	
-	//Montor Sound
-	// 
 	soundmask: [{
 		coords: [[-58.585,41.572 ],[-69.718,-105.293]],
 		label: $.t("sidebar.soundmask"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 };
 

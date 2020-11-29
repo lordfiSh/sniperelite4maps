@@ -179,12 +179,10 @@ window.mapdata_magazzenno_facility = {
 		popup: $.t("f:mission.desc.main3")
 	}],
 	
-	//Montor Sound
-	// 
 	soundmask: [{
 		coords: [[0,0]],
 		label: $.t("sidebar.soundmask"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 };
 

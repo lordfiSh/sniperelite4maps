@@ -170,13 +170,11 @@ window.mapdata_fortress = {
 		label: $.t("h:mission.label.main2"),
 		popup: $.t("h:mission.desc.main2")
 	}],
-	
-	//Montor Sound
-	// 
+	 
 	soundmask: [{
 		coords: [[0,0]],
 		label: $.t("sidebar.soundmask"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 };
 

@@ -146,8 +146,6 @@ window.mapdata_dlc1 = {
 	//Quest
 	star: [],
 	
-	//Montor Sound
-	// 
 	soundmask: [],
 	
 };

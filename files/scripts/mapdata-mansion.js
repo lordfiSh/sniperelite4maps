@@ -151,12 +151,10 @@ window.mapdata_mansion = {
 		popup: $.t("g:mission.desc.main3") +$.t(" ") +$.t("misc.mainmission") 
 	}],
 	
-	//Montor Sound
-	// 
 	soundmask: [{
 		coords: [[0,0]],
 		label: $.t("sidebar.soundmask"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 };
 
