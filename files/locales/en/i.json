@@ -1,0 +1,100 @@
+{
+	"letter_from_home": {
+		"label": {
+			"0":"Label todo",
+			"1": "Time on My Hands!",
+			"2": "Our Blood",
+			"3": "The Exciting Death",
+			"4": "We Are Very Proud of You",
+			"5": "The Train Station"
+
+		},
+		"desc": {
+			"0":"Desc todo",
+			"1": "carried by Johannes Kogler, located below the Bridge",
+			"2": "XXX",
+			"3": "XXX",
+			"4": "XXX",
+			"5": "XXX"
+		}
+	},
+	"mission": {
+		"label": {
+			"main1": "Recover the Technical Specs for the missle",
+			"main2": "Destroy all Vents"
+		},
+		"desc": {
+			"main1": "...",
+			"main2": "..."
+		}
+	},
+	"letter_to_home": {
+		"label": {
+			"0":"Label todo",
+			"1": "Aunt Klaudia",
+			"2": "Liquarice",
+			"3": "The Exciting Death",
+			"4": "We Are Very Proud of You",
+			"5": "The Train Station"
+		},
+		"desc": {
+			"1": "on a Baumstamm",
+			"2": "carried by Dolf Lehmann, 1st Floor of the Warehouse",
+			"3": "carried by Orlando Foschini"
+		}
+	},
+	
+	"sniper_reports": {
+		"label": {
+			"0":"label todo",
+			"1": "Gefreiter Erik Fanck",
+			"2": "Gefreiter Dietrich Kopkow",
+			"3": "Soldat Gustav Jutzi"
+		},
+		"desc": {
+			"0":"Desc todo",
+			"1": "",
+			"2": "",
+			"3": ""
+		}
+	},	
+	"duty_poster": {
+		"label": {
+			"0":"label todo",
+			"": "",
+			"": ""
+		},
+		"desc": {
+			"0":"Desc todo",
+			"harbor": "carried by the corrupt harbor master",
+			"": ""
+		}
+	},
+	"last_letter": {
+		"label": {
+			"0":"label todo",
+			"1": "The Logical Choice",
+			"2": "In My Heart",
+			"3": "",
+			"4": "",
+			"5": ""
+		},
+		"desc": {
+			"": ""
+		}
+	},
+	"misc_docs": {
+		"label": {
+			"0": "label todo",
+			"1": "A Note",
+			"2": "Itinerary",
+			"3": "Letter from Führer",
+			"4": "Memorandum",
+			"5": "Diary",
+			"6": "Letter to Berlin"
+		},
+		"desc": {
+			"0": "desc todo"
+		}
+	}
+}

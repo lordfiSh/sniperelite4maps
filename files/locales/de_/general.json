@@ -1,0 +1,69 @@
+{  
+   "maps":{  
+      "toussaint":"Enter"
+   },
+   "home":{  
+      "tagline":"Unofficial Hyper Light Drifter Interactive Maps",
+    "resultsFound":"Ergebnis(se) gefunden.",
+    "searchPlaceholder":"Geben Sie Suchbegriffe ein..."
+   },
+   "notes":{  
+    "label":"Bezeichnung:",
+    "title":"Titel:",
+    "note":"Notiz:",
+    "enterLabel":"Kartenbezeichnung eingeben...",
+    "enterTitle":"Geben Sie den Titel der Notiz ein...",
+    "enterText":"Geben Sie den Notiztext ein...",
+    "saveNote":"Notiz speichern",
+    "deleteNote":"Notiz löschen"
+   },
+   "sidebar":{  
+      "gearbit":"Gearbit",
+      "gearbitdrop":"Gearbit (dropped)",
+      "key":"Schlüssel",
+      "module":"Module",
+      "gun":"Waffe",
+      "outfit":"Ausrüstung",
+      "monolith":"Monolith",
+      "chivo":"Erfolg"
+   },
+   "controls":{  
+    "show":"Alle anzeigen",
+    "hide":"Alle ausblenden",
+    "showCounts":"Zähler anzeigen",
+    "hideCounts":"Zähler ausblenden",
+    "resetInvisible":"Ausgeblendetes zurücksetzen",
+    "resetInvisConfirm":"Dies wird alle ausgeblendete\/verfolgte Marker auf ihren Standardzustand (sichtbar) zurücksetzen, sind Sie sicher?",
+    "hideMonsters":"n\/a",
+    "showMonsters":"n\/a",
+    "helpFeatures":"Funktionen & Hilfe",
+    "credits":"Credits",
+    "backupSave":"Dies wird eine Sicherungskopie aller Fallout 4 Karteneinstellungen herunterladen.\nDie Datei wird gespeichert als: __fileName__ \nBist du sicher?",
+    "backupLoad":"Einstellungen wiederherstellen:",
+    "backupLoadSuccess":"Datenwiederherstellung abgeschlossen!",
+    "backupLoadFail":"Wiederherstellung fehlgeschlagen ist, überprüfen Sie noch einmal Ihre Datei",
+    "backupHtmlFail":"Tut mir Leid.  Wiederherstellung ist nicht möglich.  Dieser Browser unterstützt kein HTML5-File-APIs.",
+      "zoomInButton":"Zoom In",
+      "zoomOutButton":"Zoom Out",
+      "searchButton":"Search...",
+      "backupDataButton":"Backup Data",
+      "restoreDataButton":"Restore Data",
+      "centerMarkerButton":"Center Highlighted Marker",
+      "addNoteButton":"Add Note",
+      "cancelNoteButton":"Cancel Note",
+      "viewFullscreenButton":"View Fullscreen",
+      "exitFullscreenButton":"Exit Fullscreen"
+   },
+   "credits":{  
+		"botCreated":"Erstellt von __lordfiSh__, lizensiert unter __license__",
+		"botHelp":"Mit Hilfe von __mcarver__ & anderen __contributors__. Für die vollständige Liste der verwendeten Javascript-Bibliotheken, __jsCredits__.",
+		"botAssets":"Hyper Light Drifter Logo, Symbole, Karte &amp; Text sind Eigentum von __hm__"
+   },
+   "misc":{  
+      "contribute":"Work in progress! Help appreciated at __link__",
+      "discuss":"Feedback, suggestions? Discuss on __link__",
+      "helpTranslate":"Want to help or improve translations?",
+      "portraitWarn":"Note: the map is best viewed in landscape mode, tap to dismiss",
+	  "needhelp":" does this item need description? tell me at reddit"
+   }
+}
