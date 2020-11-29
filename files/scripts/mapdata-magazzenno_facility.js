@@ -9,7 +9,7 @@ window.mapdata_magazzenno_facility = {
 	gearbit: [{
 		coords: [[1.933,-72.729],[-61.939,-114.785],[-70.816,-23.818]],
 		label: $.t("sidebar.deadeye"),
-		popup: $.t("f:stuff.desc.deadeye")
+		popup: $.t("")
 	}],
 	
 	//letter_from_home
@@ -32,11 +32,10 @@ window.mapdata_magazzenno_facility = {
 	},{
 		coords: [[-78.734,-62.578]],
 		label: $.t("sidebar.letter_from_home") + $.t(": ") + $.t("f:letter_from_home.label.0"),
-		//popup: $.t("misc.inf") + $.t(" (XXX) ") +$.t("misc.position"),
+		popup: $.t("")
 	}],
 
 	//letter_to_home
-	//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
 	gun: [{
 		coords: [[-12.469,-113.027]],
 		label: $.t("sidebar.letter_to_home") + $.t(": ") + $.t("f:letter_to_home.label.0"),
@@ -106,58 +105,58 @@ window.mapdata_magazzenno_facility = {
 	outfit: [{
 		coords: [[-6.359,-142.471]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:stuff.desc.officer"),
+		popup: $.t("")
 	},{
 		coords: [[22.065,-116.499]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:stuff.desc.inf"),
+		popup: $.t("")
 	},{
 		coords: [[-7.188,-64.775]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.tres"),
+		popup: $.t("")
 	},{
 		coords: [[-19.062,-40.474]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.tent"),
+		popup: $.t("")
 	},{
 		coords: [[-28.459,-152.666]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.radio"),
+		popup: $.t("")
 	},{
 		coords: [[-56.993,-107.842]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.1st"),
+		popup: $.t("")
 	},{
 		coords: [[-74.776,-95.317]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.1st"),
+		popup: $.t("")
 	},{
 		coords: [[-70.422,-91.846]],
 		label: $.t("sidebar.misc_docs") + $.t(": ") + $.t("f:misc_docs.label.0"),
-		//popup: $.t("f:misc_docs.desc.1st"),
+		popup: $.t("")
 	}],
 	
 	//sniper_reports
 	monolith: [{
 		coords: [[-13.838,-144.932]],
 		label: $.t("sidebar.sniper_reports") + $.t(": ") + $.t("f:sniper_reports.label.0"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	},{
 		coords: [[22.187,-118.257]],
 		label: $.t("sidebar.sniper_reports") + $.t(": ") + $.t("f:sniper_reports.label.0"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	},{
 		coords: [[15.157,-129.419]],
 		label: $.t("sidebar.sniper_reports") + $.t(": ") + $.t("f:sniper_reports.label.0"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	},{
 		coords: [[0.615,-74.663]],
 		label: $.t("sidebar.sniper_reports") + $.t(": ") + $.t("f:sniper_reports.label.0"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	},{
 		coords: [[-70.006,-121.201]],
 		label: $.t("sidebar.sniper_reports") + $.t(": ") + $.t("f:sniper_reports.label.0"),
-		//popup: $.t("d:stuff.desc.inf") + $.t(" (Franz Bartel) ") +$.t("d:stuff.desc.inf2")
+		popup: $.t("")
 	}],
 	
 	//Quest
@@ -179,11 +178,7 @@ window.mapdata_magazzenno_facility = {
 		popup: $.t("f:mission.desc.main3")
 	}],
 	
-	soundmask: [{
-		coords: [[0,0]],
-		label: $.t("sidebar.soundmask"),
-		popup: $.t("")
-	}],
+	soundmask: [],
 };
 
 
