@@ -608,18 +608,20 @@ div#popup-wrap img#popup-close {
 	}
 }
 
-i.gearbit { background-image:url('../images/icons/deadeye.png'); }
-i.gearbitdrop { background-image:url('../images/icons/letter_from_home.png'); }
-i.key { background-image:url('../images/icons/last_letter.png'); }
-i.module { background-image:url('../images/icons/duty_poster.png'); }
-i.gun { background-image:url('../images/icons/letter_to_home.png'); }
-i.outfit { background-image:url('../images/icons/misc_docs.png'); }
-i.monolith { background-image:url('../images/icons/sniper_reports.png'); }
-i.star { background-image:url('../images/icons/star.png'); }
+i.gearbit { background-image:url('../images/icons/deadeye-target.png'); }
+i.gearbitdrop { background-image:url('../images/icons/letter-from-home.png'); }
+i.key { background-image:url('../images/icons/last-letter.png'); }
+i.module { background-image:url('../images/icons/duty-roster.png'); }
+i.gun { background-image:url('../images/icons/letter-to-home.png'); }
+i.outfit { background-image:url('../images/icons/misc-document.png'); }
+i.monolith { background-image:url('../images/icons/sniper-report.png'); }
 i.soundmask { background-image:url('../images/icons/soundmask.png'); }
-i.star { background-image:url('../images/icons/star.png'); }
+i.star { background-image:url('../images/icons/objective-primary.png'); }
 
-
+.leaflet-marker-icon {
+	filter: drop-shadow(0px 0px 3px black);
+	-webkit-filter: drop-shadow(0px 0px 3px black);
+}
 .leaflet-container {
 	background: #222;
 }

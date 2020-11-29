@@ -146,53 +146,53 @@ window.processData = function (data) {
 
 					
 icons.gearbit = L.icon({
-	iconUrl  : '../files/images/icons/deadeye.png',
+	iconUrl  : '../files/images/icons/deadeye-target.png',
 	iconSize : [32, 32]
 });
 
 
 icons.gearbitdrop = L.icon({
-	iconUrl  : '../files/images/icons/letter_from_home.png',
+	iconUrl  : '../files/images/icons/letter-from-home.png',
 	iconSize : [32, 32]
 });
 
 
 icons.key = L.icon({
-	iconUrl  : '../files/images/icons/last_letter.png',
+	iconUrl  : '../files/images/icons/last-letter.png',
 	iconSize : [32, 32]
 });
 
 
 icons.module = L.icon({
-	iconUrl  : '../files/images/icons/duty_poster.png',
+	iconUrl  : '../files/images/icons/duty-roster.png',
 	iconSize : [32, 32]
 });
 
 
 icons.gun = L.icon({
-	iconUrl  : '../files/images/icons/letter_to_home.png',
+	iconUrl  : '../files/images/icons/letter-to-home.png',
 	iconSize : [32, 32]
 });
 
 
 icons.outfit = L.icon({
-	iconUrl  : '../files/images/icons/misc_docs.png',
+	iconUrl  : '../files/images/icons/misc-document.png',
 	iconSize : [32, 32]
 });
 
 
 icons.monolith = L.icon({
-	iconUrl  : '../files/images/icons/sniper_reports.png',
+	iconUrl  : '../files/images/icons/sniper-report.png',
 	iconSize : [32, 32]
-});
-
-icons.star = L.icon({
-	iconUrl  : '../files/images/icons/star.png',
-	iconSize : [28, 28]
 });
 
 icons.soundmask = L.icon({
 	iconUrl  : '../files/images/icons/soundmask.png',
+	iconSize : [28, 28]
+});
+
+icons.star = L.icon({
+	iconUrl  : '../files/images/icons/objective-primary.png',
 	iconSize : [28, 28]
 });
 
