@@ -442,7 +442,7 @@ $(function() {
 	$(document).on('click', '.credits', function(e) {
 		e.preventDefault();
 		popup('Credits', [
-			'<p>Sniper Elite 4 Map created by <a href="https://wiiare.in target="_blank">lordfiSh</a>. Orginal Code by <a href="https://github.com/untamed0" target="_blank">untamed0</a>, with contributions from:</p>',
+			'<p>Sniper Elite 4 Map created by <a href="https://wiiare.in" target="_blank">lordfiSh</a>. Orginal Code by <a href="https://github.com/untamed0" target="_blank">untamed0</a>, with contributions from:</p>',
 			'<ul>',
 			'<li><a href="https://github.com/mcarver" target="_blank">mcarver</a> (lead contributor) - Marker count, hash permalink improvements, backup/restore settings, numerous fixes etc</li>',
 			'<li><a href="https://github.com/ankri" target="_blank">ankri</a> - Ability to hide markers on right or double click</li>',

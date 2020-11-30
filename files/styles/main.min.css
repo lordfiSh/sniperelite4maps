@@ -596,15 +596,17 @@ div#popup-wrap img#popup-close {
 	}
 }
 
-i.deadeye-target { background-image:url('../images/icons/deadeye-target.png'); }
 i.letter-from-home { background-image:url('../images/icons/letter-from-home.png'); }
-i.last-letter { background-image:url('../images/icons/last-letter.png'); }
-i.duty-roster { background-image:url('../images/icons/duty-roster.png'); }
 i.letter-to-home { background-image:url('../images/icons/letter-to-home.png'); }
+i.last-letter { background-image:url('../images/icons/last-letter.png'); }
 i.misc-document { background-image:url('../images/icons/misc-document.png'); }
+i.duty-roster { background-image:url('../images/icons/duty-roster.png'); }
 i.sniper-report { background-image:url('../images/icons/sniper-report.png'); }
+i.deadeye-target { background-image:url('../images/icons/deadeye-target.png'); }
 i.generator { background-image:url('../images/icons/generator.png'); }
 i.objective-primary { background-image:url('../images/icons/objective-primary.png'); }
+i.objective-optional { background-image:url('../images/icons/objective-optional.png'); }
+i.objective-exit { background-image:url('../images/icons/objective-exit.png'); }
 
 .leaflet-marker-icon {
 	filter: drop-shadow(0px 0px 3px black);

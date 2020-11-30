@@ -34,34 +34,41 @@
             <div id="logo"></div>
         </a>
         <ul class="key">
-            <li><i class="objective-primary"></i>
-                <div data-i18n="sidebar.star">Primary Objective</div>
-            </li>
-            <li><i class="deadeye-target"></i>
-                <div data-i18n="sidebar.gearbit">DeadEye</div>
-            </li>
             <li><i class="letter-from-home"></i>
-                <div data-i18n="sidebar.gearbitdrop">Letter From Home</div>
-            </li>
-            <li><i class="last-letter"></i>
-                <div data-i18n="sidebar.key">Last Letter</div>
-            </li>
-            <li><i class="duty-roster"></i>
-                <div data-i18n="sidebar.module">Duty Roster</div>
-            </li>
-            <li><i class="generator"></i>
-                <div data-i18n="sidebar.generator">generator</div>
+                <div data-i18n="sidebar.letter-from-home">Letters from Home</div>
             </li>
             <li><i class="letter-to-home"></i>
-                <div data-i18n="sidebar.gun">Letter To Home</div>
+                <div data-i18n="sidebar.letter-to-home">Letters to Home</div>
+            </li>
+            <li><i class="last-letter"></i>
+                <div data-i18n="sidebar.last-letter">Last Letters</div>
             </li>
             <li><i class="misc-document"></i>
-                <div data-i18n="sidebar.outfit">Misc. Docs</div>
+                <div data-i18n="sidebar.misc-document">Misc. Documents</div>
+            </li>
+            <li><i class="duty-roster"></i>
+                <div data-i18n="sidebar.duty-roster">Duty Rosters</div>
             </li>
             <li><i class="sniper-report"></i>
-                <div data-i18n="sidebar.monolith">Sniper Reports</div>
+                <div data-i18n="sidebar.sniper-report">Sniper Reports</div>
             </li>
-            <li></li>
+            <!-- second column -->
+            <li><i class="deadeye-target"></i>
+                <div data-i18n="sidebar.deadeye-target">DeadEye</div>
+            </li>
+            <li><i class="generator"></i>
+                <div data-i18n="sidebar.generator">Generator</div>
+            </li>
+            <li><i class="objective-primary"></i>
+                <div data-i18n="sidebar.objective-primary">Primary Objectives</div>
+            </li>
+            <li><i class="objective-optional"></i>
+                <div data-i18n="sidebar.objective-optional">Optional Objectives</div>
+            </li>
+            <li><i class="objective-exit"></i>
+                <div data-i18n="sidebar.objective-exit">Mission Exits</div>
+            </li>
+            <li class="none"></li>
         </ul>
         <ul class="key controls">
             <li id="show-all"><i class="fa fa-eye"></i>
