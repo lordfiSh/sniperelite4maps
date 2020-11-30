@@ -9,6 +9,35 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	window.transparentMarkers = [];
 	window.notes = [];
 	
+	const namespaceMap = {
+		a: 'm01-san-celini-island',
+		b: 'm02-bitanti-village',
+		c: 'm03-regilino-viaduct',
+		d: 'm04-lorino-dockyard',
+		e: 'm05-abrunza-monastery',
+		f: 'm06-magazzeno-facility',
+		g: 'm07-giovi-fiorini-mansion',
+		h: 'm08-allagra-fortress',
+		i: 'dlc1-target-fuehrer',
+		j: 'dlc2-inception',
+		k: 'dlc3-infiltration',
+		l: 'dlc4-obliteration',
+	}
+	
+	const markerTypes = [
+		'deadeye-target',
+		'letter-from-home',
+		'letter-to-home',
+		'last-letter',
+		'duty-roster',
+		'sniper-report',
+		'misc-document',
+		'generator',
+		'objective-primary',
+		'objective-optional',
+		'objective-exit'
+	];
+	
 	const transparentMarkerOpacity = 0.5;
 	
 	function loadNotes() {
@@ -116,35 +145,6 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	
 	*/
 	
-	const collectibleTypes = [
-		'deadeye-target',
-		'letter-from-home',
-		'letter-to-home',
-		'last-letter',
-		'duty-roster',
-		'sniper-report',
-		'misc-document',
-		'soundmask',
-		'objective-primary',
-		'objective-optional',
-		'objective-exit'
-	];
-	
-	const namespaceMap = {
-		a: 'm01-san-celini-island',
-		b: 'm02-bitanti-village',
-		c: 'm03-regilino-viaduct',
-		d: 'm04-lorino-dockyard',
-		e: 'm05-abrunza-monastery',
-		f: 'm06-magazzeno-facility',
-		g: 'm07-giovi-fiorini-mansion',
-		h: 'm08-allagra-fortress',
-		i: 'dlc1-target-fuehrer',
-		j: 'dlc2-inception',
-		k: 'dlc3-infiltration',
-		l: 'dlc4-obliteration',
-	}
-	
 	function addIcon(name, size) {
 		icons[name] = L.icon({
 			iconUrl: `/files/images/icons/${name}.png`,
@@ -153,7 +153,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	}
 	
 	function initIcons() {
-		for(const name of collectibleTypes) {
+		for(const name of markerTypes) {
 			addIcon(name);
 		}
 	}
@@ -163,6 +163,11 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		loadNotes();
 		
 		const layers = {};
+		
+		for(const type of markerTypes) {
+			layers[type] = [];
+		}
+		
 		for(const markerInfo of window.map.markers) {
 			const type = markerInfo.type;
 			window.markerCount[type] ??= 0;

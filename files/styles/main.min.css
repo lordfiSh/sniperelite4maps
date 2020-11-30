@@ -282,13 +282,9 @@ div#copyright {
 	color: #999;
 	margin-top: 15px;
 	margin-bottom: 5px;
-}
-div#copyright.absolute {
-	width: 380px;
+	width: 360px;
 	position: absolute;
 	bottom: 5px;
-	left: 0;
-	padding-left:5px;
 }
 div#copyright a,
 div#copyright a:visited,
@@ -527,17 +523,6 @@ div#popup-wrap img#popup-close {
 	div#note {
 		display: none;
 	}
-	div#sfw, div#copyright {
-		width: auto;
-		position: relative;
-		bottom: auto;
-		left: auto;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	div#copyright {
-		display: none;
-	}
 	div#popup-wrap {
 		display: block;
 		max-width: 95%;
@@ -554,6 +539,9 @@ div#popup-wrap img#popup-close {
 	div#popup-wrap #popup-content {
 		max-height: none;
 		height: calc(100% - 52px);
+	}
+	div#copyright {
+		width: 180px;
 	}
 	div#info-wrap {
 		left: 205px;
@@ -608,15 +596,15 @@ div#popup-wrap img#popup-close {
 	}
 }
 
-i.gearbit { background-image:url('../images/icons/deadeye-target.png'); }
-i.gearbitdrop { background-image:url('../images/icons/letter-from-home.png'); }
-i.key { background-image:url('../images/icons/last-letter.png'); }
-i.module { background-image:url('../images/icons/duty-roster.png'); }
-i.gun { background-image:url('../images/icons/letter-to-home.png'); }
-i.outfit { background-image:url('../images/icons/misc-document.png'); }
-i.monolith { background-image:url('../images/icons/sniper-report.png'); }
-i.soundmask { background-image:url('../images/icons/soundmask.png'); }
-i.star { background-image:url('../images/icons/objective-primary.png'); }
+i.deadeye-target { background-image:url('../images/icons/deadeye-target.png'); }
+i.letter-from-home { background-image:url('../images/icons/letter-from-home.png'); }
+i.last-letter { background-image:url('../images/icons/last-letter.png'); }
+i.duty-roster { background-image:url('../images/icons/duty-roster.png'); }
+i.letter-to-home { background-image:url('../images/icons/letter-to-home.png'); }
+i.misc-document { background-image:url('../images/icons/misc-document.png'); }
+i.sniper-report { background-image:url('../images/icons/sniper-report.png'); }
+i.generator { background-image:url('../images/icons/generator.png'); }
+i.objective-primary { background-image:url('../images/icons/objective-primary.png'); }
 
 .leaflet-marker-icon {
 	filter: drop-shadow(0px 0px 3px black);

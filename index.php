@@ -49,8 +49,8 @@
             <li><i class="duty-roster"></i>
                 <div data-i18n="sidebar.module">Duty Roster</div>
             </li>
-            <li><i class="soundmask"></i>
-                <div data-i18n="sidebar.soundmask">Soundmask</div>
+            <li><i class="generator"></i>
+                <div data-i18n="sidebar.generator">generator</div>
             </li>
             <li><i class="letter-to-home"></i>
                 <div data-i18n="sidebar.gun">Letter To Home</div>
