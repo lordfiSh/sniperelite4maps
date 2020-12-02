@@ -5,8 +5,8 @@ window.map = {
 	minZoom: 2,
 	maxZoom: 6,
 	defaultZoom: 3,
-	bounds: L.latLngBounds([-100, 100], [-100, -100]),
-	center: [0, 0]
+	bounds: L.latLngBounds([300, 300], [0, 0]),
+	center: [100, 100]
 }
 
 window.map.markers = [

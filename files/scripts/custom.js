@@ -39,10 +39,13 @@ $(function() {
 		center: window.map.center,
 		attributionControl: false,
 		zoomControl: false,
-		layers: allLayers
+		layers: allLayers,
+		continuousWorld: true,
+		crs: L.CRS.Simple
 	};
 	
-	var map = L.map('map', map_settings);
+	const map = L.map('map', map_settings);
+	window.leafletMap = map;
 	
 	window.go = function(cords) {
 		map.setView(cords);
@@ -133,13 +136,10 @@ $(function() {
 	var layer_settings = {
 		tms: true,
 		bounds: bounds,
-		noWrap: true
+		noWrap: true,
+		continuousWorld: true,
+		crs: L.CRS.Simple
 	};
-	
-	if(window.map.name === 'toussaint') {
-		layer_settings['continuousWorld'] = true;
-		layer_settings['crs'] = L.CRS.Simple;
-	}
 	
 	L.tileLayer(window.map.tilePath, layer_settings).addTo(map);
 	
