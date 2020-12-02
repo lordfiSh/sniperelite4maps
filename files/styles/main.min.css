@@ -144,7 +144,7 @@ ul.key > li > a > i {
 ul.key > li > div, ul.key > li > a > div {
 	line-height: 21px;
 	white-space: nowrap;
-	width: 120px;
+	width: 125px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	float: left;
@@ -155,7 +155,6 @@ ul.controls > li > div, ul.controls > li > a > div {
 ul.key > li > div.pill {
 	background-color:#97702F;
 	box-shadow: 1px 1px 3px #000000 inset;
-	margin-left:5px;
 	padding:2px 3px 0px 4px;
 	color:#000000;
 	border-radius:7px;
@@ -318,6 +317,13 @@ div#info {
 	font-size: 18px;
 	line-height: 21px;
 	cursor: default;
+}
+div#info small {
+	display: block;
+	margin-top: 4px;
+	line-height: 15px;
+	font-size: 14px;
+	font-style: italic;
 }
 div#info-fade-intro {
 	position: absolute;
