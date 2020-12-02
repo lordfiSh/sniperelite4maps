@@ -1,3 +1,4 @@
+112.203, 95.938
 window.map = {
 	name: 'm05-abrunza-monastery',
 	tilePath: '/files/maps/m05-abrunza-monastery/{z}/{x}/{y}.png',
@@ -50,7 +51,8 @@ window.map.markers = [
 	makeMarker('deadeye-target', 1, 81.875, 181.407),
 	makeMarker('deadeye-target', 2, 126.281, 160.406),
 	makeMarker('deadeye-target', 3, 84.906, 132.735),
-	
+
+	makeMarker('generator', 0, 112.359, 95.938),
 	makeMarker('generator', 0, 89.469, 108.500),
 	makeMarker('generator', 0, 103.625, 188.688),
 	makeMarker('generator', 0, 78.594, 137.891),

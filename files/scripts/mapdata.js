@@ -3,7 +3,7 @@ function getMarkerLabel(namespace, type, id) {
 	
 	if(!id) return typeLabel;
 	
-	const translationPath = `${namespace}:${type}.${id}.label`
+	const translationPath = `${namespace}:${type}.${Math.trunc(id)}.label`
 	const translation = $.t(translationPath);
 	const translated = translation !== translationPath;
 	
@@ -38,7 +38,7 @@ function getMarkerPopup(namespace, type, id) {
 
 function makeMarker(type, id, y, x, label, popup) {
 	const position = [y, x];
-	label ??= getMarkerLabel(window.map.name, type, Math.trunc(id));
+	label ??= getMarkerLabel(window.map.name, type, id);
 	popup ??= getMarkerPopup(window.map.name, type, id);
 	return {type, position, label, popup};
 }
