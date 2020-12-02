@@ -148,6 +148,11 @@ $(function() {
 		this._newPos = this._newPos.subtract(map._getBoundsOffset(new L.Bounds(pos, pos.add(map.getSize())), map.options.maxBounds));
 	});
 	
+	const waypointIcon = L.icon({
+		iconUrl: '../files/images/icons/marker.png',
+		iconSize: [48, 48]
+	});
+	
 	map.on('contextmenu', function(e) {
 		if(!bounds.contains(e.latlng)) {
 			return false;
@@ -156,10 +161,7 @@ $(function() {
 			map.removeLayer(wayPoint);
 		}
 		wayPoint = new L.marker(e.latlng, {
-			icon: L.icon({
-				iconUrl: '../files/images/icons/waypoint.png',
-				iconSize: [26, 32]
-			})
+			icon: waypointIcon
 		}).on('click', function() {
 			map.removeLayer(wayPoint);
 			hash.removeParam('w');

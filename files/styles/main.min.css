@@ -101,7 +101,7 @@ div#logo {
 }
 ul.key {
 	list-style-type: none;
-	margin: 0;
+	margin: 20px 0 0 0;
 	padding: 0;
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
@@ -187,7 +187,7 @@ ul.key > li.layer-disabled > i {
 	opacity: 0.6;
 }
 ul.controls {
-	margin-top: 10px;
+	margin: 10px 0 10px 0;
 	font-weight: bold;
 }
 ul.key  li.none {
