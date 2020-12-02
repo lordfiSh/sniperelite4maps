@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'c',
-	name: 'regilino-viaduct',
+	name: 'm03-regilino-viaduct',
 	tilePath: '/files/maps/m03-regilino-viaduct/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

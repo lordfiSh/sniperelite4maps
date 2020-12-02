@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'j',
-	name: 'inception',
+	name: 'dlc2-inception',
 	tilePath: '/files/maps/dlc2-inception/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

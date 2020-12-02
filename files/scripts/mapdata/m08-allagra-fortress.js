@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'h',
-	name: 'allagra-fortress',
+	name: 'm08-allagra-fortress',
 	tilePath: '/files/maps/m08-allagra-fortress/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

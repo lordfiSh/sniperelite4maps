@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'e',
-	name: 'abrunza-monastery',
+	name: 'm05-abrunza-monastery',
 	tilePath: '/files/maps/m05-abrunza-monastery/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

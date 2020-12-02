@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'i',
-	name: 'target-fuehrer',
+	name: 'dlc1-target-fuehrer',
 	tilePath: '/files/maps/dlc1-target-fuehrer/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

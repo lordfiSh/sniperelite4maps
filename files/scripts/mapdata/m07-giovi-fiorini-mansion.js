@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'g',
-	name: 'giovi-fiorini-mansion',
+	name: 'm07-giovi-fiorini-mansion',
 	tilePath: '/files/maps/m07-giovi-fiorini-mansion/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

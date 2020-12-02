@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'a',
-	name: 'san-celini-island',
+	name: 'm01-san-celini-island',
 	tilePath: '/files/maps/m01-san-celini-island/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'k',
-	name: 'infiltration',
+	name: 'dlc3-infiltration',
 	tilePath: '/files/maps/dlc3-infiltration/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

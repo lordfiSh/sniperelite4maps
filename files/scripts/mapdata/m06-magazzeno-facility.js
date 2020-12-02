@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'f',
-	name: 'magazzeno-facility',
+	name: 'm06-magazzeno-facility',
 	tilePath: '/files/maps/m06-magazzeno-facility/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

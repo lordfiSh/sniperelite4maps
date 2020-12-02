@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'd',
-	name: 'lorino-dockyard',
+	name: 'm04-lorino-dockyard',
 	tilePath: '/files/maps/m04-lorino-dockyard/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

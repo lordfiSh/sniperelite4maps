@@ -189,7 +189,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		const mapName = namespaceMap[namespace];
 		
 		await $.i18n.init(i18noptions);
-		await new Promise(resolve => $.i18n.loadNamespace(namespace, resolve));
+		await new Promise(resolve => $.i18n.loadNamespace(mapName, resolve));
 		
 		await runScript('/files/scripts/mapdata.js');
 		await runScript(`/files/scripts/mapdata/${mapName}.js`);

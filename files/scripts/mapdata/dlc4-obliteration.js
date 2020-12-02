@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'l',
-	name: 'obliteration',
+	name: 'dlc4-obliteration',
 	tilePath: '/files/maps/dlc4-obliteration/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,

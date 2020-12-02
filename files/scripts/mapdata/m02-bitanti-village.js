@@ -1,6 +1,5 @@
 window.map = {
-	namespace: 'b',
-	name: 'bitanti-village',
+	name: 'm02-bitanti-village',
 	tilePath: '/files/maps/m02-bitanti-village/{z}/{x}/{y}.png',
 	minZoom: 2,
 	maxZoom: 6,
