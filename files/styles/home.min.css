@@ -59,6 +59,28 @@ div#wrap2 {
     padding-bottom: 60px;
 }
 
+.background {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img#background {
+    z-index: -2;
+}
+
+img#background-fade-layer {
+    z-index: -1;
+    opacity: 0;
+}
+
+div#background-darken-layer {
+    background: black;
+    opacity: 0.75;
+}
+
 div#content {
     margin: 0 auto 30px auto;
 }
@@ -95,18 +117,19 @@ ul#nav li {
     line-height: 80px;
     font-size: 21px;
     cursor: pointer;
-    color: #4F3C2F;
+    color: #70573f;
 }
 
 #nav li a {
     display: inline-block;
+    width: 100%;
     height: 100%;
     text-decoration: none;
-    padding: 0 20px;
-    color: #4F3C2F;
+    color: #70573f;
 }
 
 #nav li a span {
+    padding: 0 20px;
     display: inline-block;
     vertical-align: middle;
     line-height: 20px;
@@ -278,7 +301,7 @@ div#lang-switcher {
 }
 
 div#lang-switcher .dd-select {
-    background: rgba(0, 0, 0, 0) !important;
+    background: rgba(0, 0, 0, 0.5) !important;
     border: solid 1px #635540;
     color: #635540;
 }
