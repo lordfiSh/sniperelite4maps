@@ -1,9 +1,20 @@
 {
   "maps": {
-    "toussaint": "Enter"
+    "m01-san-celini-island": "San Celini Island",
+    "m02-bitanti-village": "Bitanti Village",
+    "m03-regilino-viaduct": "Regilino Viaduct",
+    "m04-lorino-dockyard": "Lorino Dockyard",
+    "m05-abrunza-monastery": "Abrunza Monastery",
+    "m06-magazzeno-facility": "Magazzeno Facility",
+    "m07-giovi-fiorini-mansion": "Giovi Fiorini Mansion",
+    "m08-allagra-fortress": "Allagra Fortress",
+    "dlc1-target-fuehrer": "(DLC) Target Führer",
+    "dlc2-inception": "(DLC) Inception",
+    "dlc3-infiltration": "(DLC) Infiltration",
+    "dlc4-obliteration": "(DLC) Obliteration"
   },
   "home": {
-    "tagline": "Unofficial Sniper Elite 4 Interactive Maps<br>(Currently under development)",
+    "tagline": "Unofficial Sniper Elite 4 Interactive Map",
     "resultsFound": "result(s) found.",
     "searchPlaceholder": "Enter search terms..."
   },
