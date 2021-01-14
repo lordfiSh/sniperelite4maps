@@ -133,18 +133,6 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		}));
 	}
 	
-	/*
-	
-	html
-	- lang-global.js
-	- shared.js
-	  - $.i18n.init
-	    - getMapData
-	      - custom.js
-	        - shared.js
-	
-	*/
-	
 	function addIcon(name, size) {
 		icons[name] = L.icon({
 			iconUrl: `/files/images/icons/${name}.png`,
@@ -184,6 +172,13 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		}
 	}
 	
+	function initPageTitle() {
+		// it's janky, but it works :D
+		const mapTitle = $.t(`maps.${window.map.name}`).replace('<br>', ' ');
+		const pageTitle = $.t('home.title');
+		$(() => document.title = `${mapTitle} - ${pageTitle}`);
+	}
+	
 	async function init() {
 		const namespace = location.pathname.match(/\/(\w+)\/(?:index.html)?$/)[1];
 		const mapName = namespaceMap[namespace];
@@ -196,6 +191,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		
 		initIcons();
 		initMapMarkers();
+		initPageTitle();
 		
 		await runScript(`/files/scripts/custom.js`);
 		
