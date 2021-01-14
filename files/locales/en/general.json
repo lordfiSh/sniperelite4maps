@@ -14,6 +14,7 @@
     "dlc4-obliteration": "(DLC) Obliteration"
   },
   "home": {
+    "title": "Sniper Elite 4 Interactive Map",
     "tagline": "Unofficial Sniper Elite 4 Interactive Map",
     "resultsFound": "result(s) found.",
     "searchPlaceholder": "Enter search terms..."
@@ -52,28 +53,6 @@
     "cancelNoteButton": "Cancel Note",
     "viewFullscreenButton": "View Fullscreen",
     "exitFullscreenButton": "Exit Fullscreen"
-  },
-  "credits": {
-    "botCreated": "Created by __lordfiSh__, licensed under __license__",
-    "botHelp": "With help from __mcarver__, __designGears__ & other __contributors__. For the full list of Javascript libraries used, __jsCredits__.",
-    "botAssets": "Sniper Elite logo, icons, map &amp; text are the property of __hm__"
-  },
-  "misc": {
-    "contribute": "Work in progress! Help appreciated at __link__",
-    "discuss": "Feedback, suggestions? Discuss on __link__",
-    "helpTranslate": "Want to help or improve translations?",
-    "portraitWarn": "Note: the map is best viewed in landscape mode, tap to dismiss",
-    "needhelp": " does this item need description? tell me at reddit",
-    "officer": "carried by a Officer",
-    "inf": "carried by a Infantry Unit",
-    "sniper": "carried by a Sniper",
-    "position": "Position may varry",
-    "duty_poster": "Operational Overview",
-    "letter": "Letter to ",
-    "memo": "Memo",
-    "desk": "on a desk",
-    "safe": "inside the Safe",
-    "mainmission": "(marker for authenticy playtrough, since you have nothing on your map)"
   },
   "sidebar": {
     "letter-from-home": "Letters from Home",
