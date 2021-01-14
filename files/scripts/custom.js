@@ -713,10 +713,7 @@ $(function() {
 		if(hashParams.w) {
 			var hashWayPoint = hashParams.w.split(",");
 			wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
-				icon: L.icon({
-					iconUrl: '../files/images/icons/waypoint.png',
-					iconSize: [26, 32]
-				})
+				icon: waypointIcon
 			}).on('click', function() {
 				map.removeLayer(wayPoint);
 				hash.removeParam('w');

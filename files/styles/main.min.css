@@ -53,6 +53,7 @@ div#sidebar {
 	font-family: 'PFDinTextCondPro', Arial, sans-serif;
 	color: #fff;
 	overflow: hidden;
+	outline: none;
 }
 div#sidebar-border {
 	width: 15px;

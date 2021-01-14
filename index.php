@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Abrunza Monastery - Sniper Elite 4 Interactive Map</title>
+    <title>Sniper Elite 4 Interactive Map</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -18,12 +18,7 @@
     <link type="text/css" rel="stylesheet" href="/files/styles/leaflet.css"/>
     <link type="text/css" rel="stylesheet" href="/files/styles/main.min.css"/>
     <link type="text/css" rel="stylesheet" href="/files/styles/font-awesome.min.css"/>
-    <!--link rel="apple-touch-icon" sizes="120x120" href="/files/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" href="/files/images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/files/images/favicon-16x16.png" sizes="16x16" /-->
-    <link rel="mask-icon" href="/files/images/safari-pinned-tab.svg" color="#5bbad5"/>
     <!--link rel="shortcut icon" href="/files/images/favicon.ico" /-->
-    <meta name="msapplication-config" content="../browserconfig.xml"/>
     <meta name="theme-color" content="#ffffff"/>
     <script type="text/javascript" src="/files/scripts/vendor.bundle.js"></script>
 </head>
