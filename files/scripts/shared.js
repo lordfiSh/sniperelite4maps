@@ -22,6 +22,8 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		j: 'dlc2-inception',
 		k: 'dlc3-infiltration',
 		l: 'dlc4-obliteration',
+		m: 'ow01-compound',
+		n: 'ow02-railyard',
 	}
 	
 	const markerTypes = [
