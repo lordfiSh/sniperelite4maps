@@ -66,33 +66,42 @@
             <li class="none"></li>
         </ul>
         <ul class="key controls">
-            <li id="show-all"><i class="fa fa-eye"></i>
-                <div data-i18n="controls.show">Show All</div>
+            <li id="show-all">
+                <i class="fa fa-eye"></i>
+                <div data-i18n="controls.show-all">Show All</div>
             </li>
-            <li id="hide-all"><i class="fa fa-eye-slash"></i>
-                <div data-i18n="controls.hide">Hide All</div>
+            <li id="hide-all">
+                <i class="fa fa-eye-slash"></i>
+                <div data-i18n="controls.hide-all">Hide All</div>
             </li>
-            <li id="show-counts"><i class="fa fa-check-square"></i>
-                <div data-i18n="controls.showCounts">Show Counts</div>
+            <li id="show-counts">
+                <i class="fa fa-check-square"></i>
+                <div data-i18n="controls.show-counts">Show Counts</div>
             </li>
-            <li id="hide-counts"><i class="fa fa-square"></i>
-                <div data-i18n="controls.hideCounts">Hide Counts</div>
+            <li id="hide-counts">
+                <i class="fa fa-square"></i>
+                <div data-i18n="controls.hide-counts">Hide Counts</div>
             </li>
-            <li id="reset-tracking"><i class="fa fa-eraser"></i>
-                <div data-i18n="controls.resetInvisible">Reset Invisible</div>
+            <li id="reset-tracking">
+                <i class="fa fa-eraser"></i>
+                <div data-i18n="controls.reset-markers">Reset Markers</div>
             </li>
-            <li><a href="https://github.com/lordfiSh/sniperelite4maps" target="_blank"><i class="fa fa-info-circle"></i>
-                    <div data-i18n="controls.helpFeatures">Features &amp; Help</div>
-                </a></li>
-            <li class="credits"><i class="fa fa-copyright"></i><span data-i18n="controls.credits">Credits</span></li>
+            <li>
+                <a href="https://github.com/lordfiSh/sniperelite4maps" target="_blank">
+                    <i class="fa fa-info-circle"></i>
+                    <div data-i18n="controls.features">Features &amp; Help</div>
+                </a>
+            </li>
+            <li class="credits">
+                <i class="fa fa-copyright"></i>
+                <div data-i18n="controls.credits">Credits</div>
+            </li>
             <li></li>
         </ul>
         <div id="note">
             <span id="note-msg">
-				still working on it - <a
-                        href="https://www.reddit.com/r/sniperelite/comments/5uo4r3/sniper_elite_4_interactive_maps_in_progress/"
-                        target="_blank">reddit thread</a><br>
-                If something seems odd, clear your browser cache
+				If you find any issues, please let us know on
+                <a href="https://github.com/lordfiSh/sniperelite4maps/issues">GitHub</a>.
             </span>
         </div>
         <div id="lang">

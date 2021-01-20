@@ -17,9 +17,7 @@
   },
   "home": {
     "title": "Interaktive Sniper Elite 4 Karte",
-    "tagline": "Inoffizielle Interaktive Sniper Elite 4 Karte",
-    "resultsFound": "Ergebnis(se) gefunden.",
-    "searchPlaceholder": "Geben Sie Suchbegriffe ein..."
+    "tagline": "Inoffizielle Interaktive Sniper Elite 4 Karte"
   },
   "notes": {
     "label": "Bezeichnung:",
@@ -32,19 +30,29 @@
     "deleteNote": "Notiz löschen"
   },
   "controls": {
-    "show": "Alle anzeigen",
-    "hide": "Alle ausblenden",
-    "showCounts": "Zähler anzeigen",
-    "hideCounts": "Zähler ausblenden",
-    "resetInvisible": "Ausgeblendetes zurücksetzen",
-    "resetInvisConfirm": "Dies wird alle ausgeblendete/verfolgte Marker auf ihren Standardzustand (sichtbar) zurücksetzen, sind Sie sicher?",
-    "helpFeatures": "Funktionen & Hilfe",
+    "show-all": "Alle anzeigen",
+    "hide-all": "Alle ausblenden",
+    "show-counts": "Zähler anzeigen",
+    "hide-counts": "Zähler ausblenden",
+    "reset-markers": "Marker zurücksetzen",
+    "reset-markers-confirm": "Dies wird alle Marker auf ihren Standardzustand (sichtbar) zurücksetzen. Fortsetzen?",
+    "features": "Funktionen & Hilfe",
     "credits": "Credits",
-    "backupSave": "Dies wird eine Sicherungskopie aller Karteneinstellungen herunterladen.\nDie Datei wird gespeichert als: __fileName__ \nBist du sicher?",
-    "backupLoad": "Einstellungen wiederherstellen:",
-    "backupLoadFail": "Wiederherstellung fehlgeschlagen, überprüfen Sie noch einmal Ihre Datei",
-    "backupLoadSuccess": "Datenwiederherstellung abgeschlossen!",
-    "backupHtmlFail": "Tut mir Leid.  Wiederherstellung ist nicht möglich.  Dieser Browser unterstützt kein HTML5-File-APIs."
+    "zoom-in": "Zoom In",
+    "zoom-out": "Zoom Out",
+    "fullscreen-enter": "Vollbild",
+    "fullscreen-exit": "Vollbildmodus beenden",
+    "search": "Suchen...",
+    "backup-save": "Einstellungen sichern",
+    "backup-save-confirm": "Dies wird eine Sicherungskopie deiner Karteneinstellungen herunterladen.\nDie Datei wird unter dem Namen \"__fileName__\" gespeichert. \nFortfahren?",
+    "backup-load": "Einstellungen wiederherstellen",
+    "backup-load-label": "Einstellungen wiederherstellen:",
+    "backup-load-success": "Wiederherstellung erfolgreich!",
+    "backup-load-fail": "Wiederherstellung fehlgeschlagen, bitte überprüfe die Datei",
+    "backup-load-unsupported": "Die Wiederherstellungsfunktion ist nicht verfügbar, weil dein Browser die HTML5 File API nicht unterstützt.",
+    "center-on-focused-marker": "Ausgewählten Marker zentrieren",
+    "note-add": "Notiz hinzufügen",
+    "note-cancel": "Notizerstellung abbrechen"
   },
   "sidebar": {
     "letter-from-home": "Briefe aus der Heimat",

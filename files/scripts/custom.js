@@ -60,13 +60,13 @@ $(function() {
 	
 	new L.Control.Zoom({
 		position: 'topright',
-		zoomInTitle: $.t('controls.zoomInButton'),
-		zoomOutTitle: $.t('controls.zoomOutButton')
+		zoomInTitle: $.t('controls.zoom-in'),
+		zoomOutTitle: $.t('controls.zoom-out')
 	}).addTo(map);
 	
 	new L.Control.Fullscreen({
 		position: 'topright',
-		title: {'false': $.t('controls.viewFullscreenButton'), 'true': $.t('controls.exitFullscreenButton')}
+		title: {'false': $.t('controls.fullscreen-enter'), 'true': $.t('controls.fullscreen-exit')}
 	}).addTo(map);
 	
 	const hash = new L.Hash(map);
@@ -93,7 +93,7 @@ $(function() {
 			position: 'topright',
 			autoCollapse: false,
 			zoom: 5,
-			text: $.t('controls.searchButton'),
+			text: $.t('controls.search'),
 			filterJSON: function(json) {
 				return json;
 			},
@@ -307,7 +307,7 @@ $(function() {
 	
 	$('#reset-tracking').on('click', function(e) {
 		e.preventDefault();
-		if(confirm($.t('controls.resetInvisConfirm'))) {
+		if(confirm($.t('controls.reset-markers-confirm'))) {
 			resetTransparentMarkers();
 		}
 	});
@@ -524,7 +524,7 @@ $(function() {
 		var currentDate = new Date();
 		var formattedDate = currentDate.getFullYear() + '-' + ((currentDate.getMonth() + 1 < 10) ? '0' : '') + (currentDate.getMonth() + 1) + '-' + ((currentDate.getDate() < 10) ? '0' : '') + currentDate.getDate();
 		var backupFileName = 'sniperelite4_map_backup_' + formattedDate + '.json';
-		if(confirm($.t('controls.backupSave', {fileName: backupFileName}))) {
+		if(confirm($.t('controls.backup-save-confirm', {fileName: backupFileName}))) {
 			if(!fileSaver) {
 				fileSaver = $.getScript('../files/scripts/FileSaver.min.js', function() {
 					var blob = new Blob([JSON.stringify(localStorage)], {type: "text/plain;charset=utf-8"});
@@ -535,12 +535,12 @@ $(function() {
 	};
 	var showRestore = function() {
 		if(!window.File && !window.FileReader && !window.FileList && !window.Blob) {
-			alert($.t('controls.backupHtmlFail'));
+			alert($.t('controls.backup-load-unsupported'));
 			return;
 		}
 		if($('#restoreDiv').length) return;
 		var restoreButtonPos = $('#restoreButton')[0].getBoundingClientRect();
-		var restoreDiv = '<div id="restoreDiv" style="top:' + restoreButtonPos.top + 'px;right:' + (14 + restoreButtonPos.right - restoreButtonPos.left) + 'px;"><div style="float:right;"><button class="fa fa-times-circle" onclick="$(\'#restoreDiv\').remove()" style="cursor:pointer" /></div><strong>' + $.t('controls.backupLoad') + '</strong><br/><input type="file" id="files" name="file[]" /></div>';
+		var restoreDiv = '<div id="restoreDiv" style="top:' + restoreButtonPos.top + 'px;right:' + (14 + restoreButtonPos.right - restoreButtonPos.left) + 'px;"><div style="float:right;"><button class="fa fa-times-circle" onclick="$(\'#restoreDiv\').remove()" style="cursor:pointer" /></div><strong>' + $.t('controls.backup-load-label') + '</strong><br/><input type="file" id="files" name="file[]" /></div>';
 		$('body').append($(restoreDiv));
 		var filesInput = document.getElementById('files');
 		filesInput.addEventListener('change', function(e) {
@@ -556,10 +556,10 @@ $(function() {
 						localStorage[prop] = restoreData[prop];
 					}
 					console.log('restore complete!');
-					alert($.t('controls.backupLoadSuccess'));
+					alert($.t('controls.backup-load-success'));
 					location.reload();
 				} catch(err) {
-					alert($.t('controls.backupLoadFail'));
+					alert($.t('controls.backup-load-fail'));
 					console.log(err.message);
 				} finally {
 					$('#restoreDiv').remove();
@@ -571,10 +571,10 @@ $(function() {
 	
 	var backupButton = L.easyButton('fa-download', function(btn, map) {
 		backupData();
-	}, $.t('controls.backupDataButton'));
+	}, $.t('controls.backup-save'));
 	var restoreButton = L.easyButton('fa-upload', function(btn, map) {
 		showRestore();
-	}, $.t('controls.restoreDataButton'), 'restoreButton');
+	}, $.t('controls.backup-load'), 'restoreButton');
 	L.easyBar([backupButton, restoreButton]).addTo(map);
 	
 	window.noteMarkers = {};
@@ -587,7 +587,7 @@ $(function() {
 		} else {
 			endNote();
 		}
-	}, $.t('controls.addNoteButton'), 'noteButton').addTo(map);
+	}, $.t('controls.note-add'), 'noteButton').addTo(map);
 	
 	L.easyButton('fa-crosshairs', function(btn, map) {
 		hashParams = hash.getHashParams();
@@ -597,7 +597,7 @@ $(function() {
 		} else {
 			map.setView(map_center);
 		}
-	}, $.t('controls.centerMarkerButton'), 'centerButton').addTo(map);
+	}, $.t('controls.center-on-focused-marker'), 'centerButton').addTo(map);
 	
 	window.getNoteKey = function(lat, lng) {
 		return lat.toFixed(3) + '_' + lng.toFixed(3);
@@ -612,7 +612,7 @@ $(function() {
 	
 	var startNote = function() {
 		console.log('starting note');
-		$('#noteButton').attr('title', $.t('controls.cancelNoteButton')).addClass('activeEasyButton');
+		$('#noteButton').attr('title', $.t('controls.note-cancel')).addClass('activeEasyButton');
 		$(document).on('keyup.addnote', function(e) {
 			if(e.keyCode === 27) endNote();
 		});
@@ -681,7 +681,7 @@ $(function() {
 	};
 	
 	var endNote = function() {
-		$('#noteButton').attr('title', $.t('controls.addNoteButton')).removeClass('activeEasyButton');
+		$('#noteButton').attr('title', $.t('controls.note-add')).removeClass('activeEasyButton');
 		$(document).off('keyup.addnote');
 		noteStatus = false;
 		$('.leaflet-container').css('cursor', noteCursorCss);
