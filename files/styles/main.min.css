@@ -27,10 +27,10 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-body {
+html, body {
+	height: 100%;
 	padding: 0;
 	margin: 0;
-	background: #000;
 	overflow: hidden;
 }
 div#map {
@@ -39,15 +39,18 @@ div#map {
 	right: 0;
 	bottom: 0;
 	left: 375px;
-	z-index: -1;
+}
+div#sidebar-container {
+	position: relative;
+	width: 400px;
+	height: 100%;
 }
 div#sidebar {
-	width: 360px;
 	position: absolute;
+	width: 360px;
 	top: 0;
-	left: 0;
 	bottom: 0;
-	z-index: 1;
+	right: 15px;
 	background: #000;
 	padding: 15px 10px 0px 15px;
 	font-family: 'PFDinTextCondPro', Arial, sans-serif;
@@ -56,16 +59,15 @@ div#sidebar {
 	outline: none;
 }
 div#sidebar-border {
+	position: absolute;
 	width: 15px;
 	background-repeat: repeat-y;
 	background-image: url('../images/border.png');
-	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: 385px;
 }
-div#sidebar-wrap > span.tooltip {
+div#sidebar-content > span.tooltip {
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.7);
     background-clip: padding-box;
@@ -207,7 +209,7 @@ div#note {
 div#note span#note-msg {
 	display: inline-block;
 	vertical-align: middle;
-	line-height: normal;  
+	line-height: normal;
 }
 div#note a {
 	color: #000;
@@ -296,7 +298,7 @@ div#copyright a:hover {
 	color: #ddd;
 	text-decoration: underline;
 }
-div#info-wrap {
+div#info-container {
 	position: absolute;
 	left: 380px;
 	bottom: 0;
@@ -306,20 +308,30 @@ div#info-wrap {
 	z-index: 2;
 	display: none;
 }
-div#info-wrap a {
+div#info-container a {
 	color: #B08948;
 }
-div#info {
+div#info-container.full-width {
+	left: 0px;
+	width: 100%;
+}
+div#info-container.full-width div#info-content {
+	width: auto;
+}
+div#info-container.full-width div#info-fade-outro {
+	display: none;
+}
+div#info-content {
 	width: 520px;
 	margin-left: 20px;
-	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.7);
 	padding-bottom: 10px;
 	font-size: 18px;
 	line-height: 21px;
 	cursor: default;
+	max-height: 100px;
 }
-div#info small {
+div#info-content small {
 	display: block;
 	margin-top: 4px;
 	line-height: 15px;
@@ -344,7 +356,7 @@ div#info-fade-outro {
 	width: 80px;
 	background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
-div#info h1 {
+div#info-content h1 {
 	text-transform: uppercase;
 	margin: 0;
 	padding: 10px 0 5px 0;
@@ -390,9 +402,6 @@ div#note-popup label.top {
 	vertical-align: top;
 	padding-top: 4px;
 }
-div#info.hideMonsters span {
-	display: none;
-}
 div#title {
 	position: absolute;
 	width: 200px;
@@ -410,13 +419,13 @@ div#title {
 	text-align: center;
 	line-height: 52px;
 }
-div#warn {
+div#mobile-warning {
 	display: none;
 }
-div#hide-sidebar {
+div#sidebar-toggle {
 	display: block;
 	position: absolute;
-	left: 390px;
+	left: 385px;
 	top: 0px;
 	background: rgba(0, 0, 0, .7) url(../images/sidebarhide.png) no-repeat 0px 3px;
 	border-bottom-right-radius: 8px;
@@ -424,7 +433,7 @@ div#hide-sidebar {
 	height: 32px;
 	cursor: pointer;
 }
-div#hide-sidebar.show-sidebar {
+div#sidebar-toggle.show-sidebar {
 	left: 0px;
 	background-position: -22px 3px;
 }
@@ -505,11 +514,11 @@ div#popup-wrap img#popup-close {
 	div#sidebar {
 		width: 180px;
 	}
-	div#hide-sidebar {
-		left: 210px;
-	}
-	div#sidebar-border {
+	div#sidebar-toggle {
 		left: 205px;
+	}
+	div#sidebar-container {
+		width: 220px;
 	}
 	div#map {
 		left: 205px;
@@ -550,18 +559,18 @@ div#popup-wrap img#popup-close {
 	div#copyright {
 		width: 180px;
 	}
-	div#info-wrap {
+	div#info-container {
 		left: 205px;
 		width: calc(100% - 205px);
 	}
 	div#info-fade-intro {
 		width: 10px;
 	}
-	div#info h1 {
+	div#info-content h1 {
 		font-size: 17px;
 		padding: 8px 0 2px 0;
 	}
-	div#info {
+	div#info-content {
 		width: calc(100% - 18px);
 		padding-right: 8px;
 		padding-bottom: 5px;
@@ -580,8 +589,8 @@ div#popup-wrap img#popup-close {
 	}
 }
 @media all and (max-width: 768px) and (orientation:portrait) {
-	div#warn {
-		display: block;
+	div#mobile-warning {
+		display: none;
 		margin: auto;
 		position: absolute;
 		top: 0;
