@@ -1,7 +1,7 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "Broken",
+      "label": "Zerbrochen",
       "desc": ""
     },
     "2": {
@@ -9,15 +9,15 @@
       "desc": ""
     },
     "3": {
-      "label": "I Will Never Forget",
+      "label": "Unvergessen",
       "desc": ""
     },
     "4": {
-      "label": "Like You Used To Do",
+      "label": "Wie früher",
       "desc": ""
     },
     "5": {
-      "label": "You Should Be Proud",
+      "label": "Du solltest stolz sein",
       "desc": ""
     }
   },
@@ -31,97 +31,97 @@
       "desc": ""
     },
     "3": {
-      "label": "Something Weird",
+      "label": "Etwas Seltsames",
       "desc": ""
     },
     "4": {
-      "label": "Finally A Man",
+      "label": "Endlich ein Mann",
       "desc": ""
     },
     "5": {
-      "label": "Our Beloved Reich",
+      "label": "Unser geliebtes Reich",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "Up His Sleeve",
+      "label": "Im Ärmel",
       "desc": ""
     },
     "2": {
-      "label": "That Night",
+      "label": "Jene Nacht",
       "desc": ""
     },
     "3": {
-      "label": "Once A Year",
+      "label": "Einmal im Jahr",
       "desc": ""
     },
     "4": {
-      "label": "Mustn't Complain",
+      "label": "Kann mich nicht beklagen",
       "desc": ""
     },
     "5": {
-      "label": "German Soil",
+      "label": "Auf deutschem Boden",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Operation False Flag",
+      "label": "Operation \"Falsche Flagge\"",
       "desc": ""
     },
     "2": {
-      "label": "Memorandum",
+      "label": "MEMORANDUM",
       "desc": ""
     },
     "3": {
-      "label": "Academic Paper",
+      "label": "Wissenschaftliche Abhandlung",
       "desc": ""
     },
     "4": {
-      "label": "Academic Paper",
+      "label": "Wissenschaftliche Abhandlung",
       "desc": ""
     },
     "5": {
-      "label": "Academic Paper",
+      "label": "Wissenschaftliche Abhandlung",
       "desc": ""
     },
     "6": {
-      "label": "Draft Speech",
+      "label": "Entwurf einer Rede",
       "desc": ""
     },
     "7": {
-      "label": "Diary of Joseph Wernicke",
+      "label": "Tagebuch von Joseph Wernicke",
       "desc": ""
     },
     "8": {
-      "label": "Letter to Siegfried Kehrer",
+      "label": "Brief an Siegfried Kehrer",
       "desc": ""
     },
     "9": {
-      "label": "Letter to Edmund Hänel",
+      "label": "Brief von Edmund Hänel",
       "desc": ""
     },
     "10": {
-      "label": "Research Paper",
+      "label": "Forschungsarbeit",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #D4",
+      "label": "Operativer Überblick D4",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #D3",
+      "label": "Operativer Überblick D3",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #D2",
+      "label": "Operativer Überblick D2",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #D1",
+      "label": "Operativer Überblick D1",
       "desc": ""
     }
   },
@@ -140,10 +140,10 @@
     },
     "4": {
       "label": "Soldat Bernahrd Stumpff",
-      "desc": "Spelling Mistake Bernhard"
+      "desc": "(Ja, der Name ist im Spiel falsch geschrieben.)"
     },
     "5": {
-      "label": "Soldat Silvester Kott",
+      "label": "Soldat Solvester Kott",
       "desc": ""
     },
     "6": {
@@ -173,15 +173,15 @@
   },
   "deadeye-target": {
     "1": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "2": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "3": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     }
   },

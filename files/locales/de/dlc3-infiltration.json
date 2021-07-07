@@ -1,139 +1,163 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "Was, wenn?",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "Schreckliche Dinge",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "Bist Du da?",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "Schweren Herzens",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "Beunruhigende Nachrichten",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "Mehr musst du nicht wissen",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "Gummischlauch",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "Mit neuem Elan",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "Ziemlich viele",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "Ich schäme mich",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "Das andere Reich",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "Ein armer Waisenjunge",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "Im Kampfgetümmel",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "Eine Shlhouette",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "Sich selbst erfüllende Prophezeiung",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "VERTRAULICHES DOKUMENT",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "Ein Codeschlüssel",
       "desc": ""
     },
     "3": {
-      "label": "Memorandum",
+      "label": "Nachricht von Veriana",
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "Brief an Osswald",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
+      "label": "Telegramm an Oberst Arling",
       "desc": ""
     },
     "6": {
-      "label": "A Note",
+      "label": "Ein Gedicht",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "Operativer Überblick C4",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "Operativer Überblick C3",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "Operativer Überblick C2",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "Operativer Überblick C1",
       "desc": ""
     }
   },
   "sniper-report": {
     "1": {
-      "label": "Soldat Gustav Jutzi",
+      "label": "Soldato Egidio Bonzano",
       "desc": ""
     },
     "2": {
-      "label": "Gefreiter Erik Fanck",
+      "label": "Sergente Medoro Scalise",
       "desc": ""
     },
     "3": {
-      "label": "Gefreiter Dietrich Kopkow",
+      "label": "Soldato Fosco Sammartino",
+      "desc": ""
+    },
+    "4": {
+      "label": "Soldato Alberto Visintini",
+      "desc": ""
+    },
+    "5": {
+      "label": "Soldato Cipriano Scordato",
+      "desc": ""
+    },
+    "6": {
+      "label": "Caporale Vorgilio Torresi.",
+      "desc": ""
+    },
+    "7": {
+      "label": "Soldat Enrico Leotta",
+      "desc": ""
+    },
+    "8": {
+      "label": "Soldat Josef Wessel",
+      "desc": ""
+    },
+    "9": {
+      "label": "Gefreiter Gregor Stark",
       "desc": ""
     }
   },
   "deadeye-target": {
     "1": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "2": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "3": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     }
   },

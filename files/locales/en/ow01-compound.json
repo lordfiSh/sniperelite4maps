@@ -1,125 +1,121 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "The Leader's Birthday",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "Caught Between the Allies and Germans",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "The Picnic",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "Spies",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "The Shadow",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "Chocolate",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "Bernadetta",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "Scugnizzi",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "Fathers and Daughters",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "Satanic Communism",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "The Third Rome",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "To the Priest",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "Pure Italy",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "My Whole Life",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "The Plough Cuts the Field",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "Intelligence Report: Martone Tarsia",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "Intelligence Report: Eduardo Golino",
       "desc": ""
     },
     "3": {
-      "label": "Memorandum",
+      "label": "Intelligence Report: Clara Tognazzi",
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "Operation Inferno Strategy Document",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
-      "desc": ""
-    },
-    "6": {
-      "label": "A Note",
+      "label": "Heavy Weapons Location Document",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "Operational Overview #36",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "Operational Overview #35",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "Operational Overview #34",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "Operational Overview #33",
       "desc": ""
     }
   },
   "sniper-report": {
     "1": {
-      "label": "Soldat Gustav Jutzi",
+      "label": "Obergefreiter Hugo Esser",
       "desc": ""
     },
     "2": {
-      "label": "Gefreiter Erik Fanck",
+      "label": "Soldat Torsten Haupt",
       "desc": ""
     },
     "3": {
-      "label": "Gefreiter Dietrich Kopkow",
+      "label": "Gefreiter Ralf Benn",
       "desc": ""
     }
   },

@@ -1,139 +1,135 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "Il Duces Geburtstag",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "Zwischen Alliierten und Deutschen",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "Das Picknick",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "Spione",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "Der Schatten",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "Schokolade",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "Bernadetta",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "Scugnizzi",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "Väter und Töchter",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "Verteufelter Kommunismus",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "Das Dritte Rom",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "An den Herrn Pfarrer",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "Ein reines Italien",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "Mein ganzes Leben",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "Der Pflug beackert das Feld",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "Geheimdienstbericht: Martone Tarsia",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "Geheimdienstbericht: Eduardo Golino",
       "desc": ""
     },
     "3": {
-      "label": "Memorandum",
+      "label": "Geheimdienstbericht: Clara Tognazzi",
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "Dokument \"Strategie Operation Inferno\"",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
-      "desc": ""
-    },
-    "6": {
-      "label": "A Note",
+      "label": "Dokument \"Standorte schwerer Waffen\"",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "Operativer Überblick 36",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "Operativer Überblick 35",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "Operativer Überblick 34",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "Operativer Überblick 33",
       "desc": ""
     }
   },
   "sniper-report": {
     "1": {
-      "label": "Soldat Gustav Jutzi",
+      "label": "Obergefreiter Hugo Esser",
       "desc": ""
     },
     "2": {
-      "label": "Gefreiter Erik Fanck",
+      "label": "Soldat Torsten Haupt",
       "desc": ""
     },
     "3": {
-      "label": "Gefreiter Dietrich Kopkow",
+      "label": "Gefreiter Ralf Benn",
       "desc": ""
     }
   },
   "deadeye-target": {
     "1": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "2": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "3": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     }
   },

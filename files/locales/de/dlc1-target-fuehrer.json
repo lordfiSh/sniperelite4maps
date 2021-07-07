@@ -1,77 +1,77 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "Wir sind sehr stolz auf Dich",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "Unser Blut",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "Zeit im Übermaß",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "Ein aufregender Tod",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "Am Bahnhof",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "Kalt in Russland",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "Irgendetwas",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "Immer",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "Tante Klaudia",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "Lakritze",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "Eine Explozzion",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "Ich werde mich sehr anstrengen",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "Etwas Böses",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "Neujahr",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "Jedem aufgetragen",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "Rundgang",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "Tagebuch",
       "desc": ""
     },
     "3": {
@@ -79,33 +79,33 @@
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "Brief an Berlin",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
+      "label": "Brief vom Führer",
       "desc": ""
     },
     "6": {
-      "label": "A Note",
+      "label": "Eine Nachricht",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "Operativer Überblick A4",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "Operativer Überblick A3",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "Operativer Überblick A2",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "Operativer Überblick A1",
       "desc": ""
     }
   },
@@ -125,15 +125,15 @@
   },
   "deadeye-target": {
     "1": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "2": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "3": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     }
   },

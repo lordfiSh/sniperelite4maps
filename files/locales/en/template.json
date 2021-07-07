@@ -1,125 +1,141 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "",
       "desc": ""
     },
     "3": {
-      "label": "Memorandum",
+      "label": "",
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
+      "label": "",
       "desc": ""
     },
     "6": {
-      "label": "A Note",
+      "label": "",
+      "desc": ""
+    },
+    "7": {
+      "label": "",
+      "desc": ""
+    },
+    "8": {
+      "label": "",
+      "desc": ""
+    },
+    "9": {
+      "label": "",
+      "desc": ""
+    },
+    "10": {
+      "label": "",
+      "desc": ""
+    },
+    "11": {
+      "label": "",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "",
       "desc": ""
     }
   },
   "sniper-report": {
     "1": {
-      "label": "Soldat Gustav Jutzi",
+      "label": "",
       "desc": ""
     },
     "2": {
-      "label": "Gefreiter Erik Fanck",
-      "desc": ""
-    },
-    "3": {
-      "label": "Gefreiter Dietrich Kopkow",
+      "label": "",
       "desc": ""
     }
   },

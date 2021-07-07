@@ -1,139 +1,143 @@
 {
   "letter-from-home": {
     "1": {
-      "label": "We Are Very Proud of You",
+      "label": "Anya",
       "desc": ""
     },
     "2": {
-      "label": "Our Blood",
+      "label": "Zähne",
       "desc": ""
     },
     "3": {
-      "label": "Time on My Hands!",
+      "label": "Schmetterlingssammlung",
       "desc": ""
     },
     "4": {
-      "label": "The Exciting Death",
+      "label": "Nicht beachtet",
       "desc": ""
     },
     "5": {
-      "label": "The Train Station",
+      "label": "Jedes kleine Stück",
       "desc": ""
     }
   },
   "letter-to-home": {
     "1": {
-      "label": "Cold in Russia",
+      "label": "Regeln",
       "desc": ""
     },
     "2": {
-      "label": "Something",
+      "label": "Ottos Schuhe",
       "desc": ""
     },
     "3": {
-      "label": "He Always Does",
+      "label": "Das alte Ehepaar",
       "desc": ""
     },
     "4": {
-      "label": "Aunt Klaudia",
+      "label": "Mein Hase",
       "desc": ""
     },
     "5": {
-      "label": "Liquorice",
+      "label": "Wie in einem Dampfkochtopf",
       "desc": ""
     }
   },
   "last-letter": {
     "1": {
-      "label": "An Explozzion",
+      "label": "Bruderliebe",
       "desc": ""
     },
     "2": {
-      "label": "I Will Try So Hard",
+      "label": "Buchstabieren",
       "desc": ""
     },
     "3": {
-      "label": "Something Nasty ",
+      "label": "Vielleicht ...",
       "desc": ""
     },
     "4": {
-      "label": "The New Year",
+      "label": "Wenn ich falle",
       "desc": ""
     },
     "5": {
-      "label": "They Told Everyone",
+      "label": "Verständnis",
       "desc": ""
     }
   },
   "misc-document": {
     "1": {
-      "label": "Itinerary",
+      "label": "Nachrichtenblatt der Partisanen",
       "desc": ""
     },
     "2": {
-      "label": "Diary",
+      "label": "Memo an Oberst Klappert",
       "desc": ""
     },
     "3": {
-      "label": "Memorandum",
+      "label": "Tachnische Spezifikationen Goliath",
       "desc": ""
     },
     "4": {
-      "label": "Letter to Berlin",
+      "label": "Frachtliste",
       "desc": ""
     },
     "5": {
-      "label": "Letter from the Führer",
-      "desc": ""
-    },
-    "6": {
-      "label": "A Note",
+      "label": "MEMORANDUM",
       "desc": ""
     }
   },
   "duty-roster": {
     "1": {
-      "label": "Operational Overview #A4",
+      "label": "Operativer Überblick 40",
       "desc": ""
     },
     "2": {
-      "label": "Operational Overview #A3",
+      "label": "Operativer Überblick 39",
       "desc": ""
     },
     "3": {
-      "label": "Operational Overview #A2",
+      "label": "Operativer Überblick 38",
       "desc": ""
     },
     "4": {
-      "label": "Operational Overview #A1",
+      "label": "Operativer Überblick 37",
       "desc": ""
     }
   },
   "sniper-report": {
     "1": {
-      "label": "Soldat Gustav Jutzi",
+      "label": "Gefreiter Anton Mayer",
       "desc": ""
     },
     "2": {
-      "label": "Gefreiter Erik Fanck",
+      "label": "Soldat Fritz Brack",
       "desc": ""
     },
     "3": {
-      "label": "Gefreiter Dietrich Kopkow",
+      "label": "Oberschütze Siegfried Huber.",
+      "desc": ""
+    },
+    "4": {
+      "label": "Soldat Karsten Dahm",
+      "desc": ""
+    },
+    "5": {
+      "label": "Soldat Herman Lang.",
       "desc": ""
     }
   },
   "deadeye-target": {
     "1": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "2": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     },
     "3": {
-      "label": "Stone Eagle",
+      "label": "Steinadler",
       "desc": ""
     }
   },
