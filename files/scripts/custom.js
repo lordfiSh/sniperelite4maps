@@ -1,27 +1,17 @@
+const leaflet = L;
 $(function() {
-	window.allLayers = Object.values(markers).filter(el => el !== undefined);
+	const L = leaflet;
+	window.allLayers = Object.values(layers).filter(el => el !== undefined);
 	
-	let wayPoint = false;
-	let circle = null;
-	
-	if(localStorage['hide-mobile-warning']) {
-		$('#warn').remove();
-	}
+	const hideAllButton = $('#hide-all');
+	const showAllButton = $('#show-all');
+	const hideCountsButton = $('#hide-counts');
+	const showCountsButton = $('#show-counts');
 	
 	if(localStorage['hide-all-' + window.map.name]) {
-		$('#hide-all').hide();
-		$('#show-all').show();
+		hideAllButton.hide();
+		showAllButton.show();
 	}
-	
-	$('div#sidebar').niceScroll({
-		cursorcolor: '#5E4F32',
-		cursorborder: 'none',
-	});
-	
-	$('div#info').niceScroll({
-		cursorcolor: '#5E4F32',
-		cursorborder: 'none',
-	});
 	
 	$(function() {
 		//fix bug where sidebar scrollbar doesn't appear when the language drop-down opens
@@ -32,7 +22,7 @@ $(function() {
 		});
 	});
 	
-	var map_settings = {
+	const map = L.map('map', {
 		zoom: window.map.defaultZoom ?? 3,
 		minZoom: window.map.minZoom ?? 2,
 		maxZoom: window.map.maxZoom ?? 5,
@@ -42,51 +32,57 @@ $(function() {
 		layers: allLayers,
 		continuousWorld: true,
 		crs: L.CRS.Simple
-	};
-	
-	const map = L.map('map', map_settings);
+	});
 	window.leafletMap = map;
 	
-	window.go = function(cords) {
-		map.setView(cords);
-		map.setZoom(map_settings.zoom);
-		new L.marker(cords, {
+	window.go = function(lat, lng) {
+		map.setView([lat, lng], map.getZoom());
+		new L.marker([lat, lng], {
 			icon: L.icon({
-				iconUrl: '../files/images/searchhover.png',
+				iconUrl: '/files/images/searchhover.png',
 				iconSize: [22, 22]
 			})
 		}).addTo(map);
 	};
 	
-	new L.Control.Zoom({
-		position: 'topright',
-		zoomInTitle: $.t('controls.zoom-in'),
-		zoomOutTitle: $.t('controls.zoom-out')
-	}).addTo(map);
-	
-	new L.Control.Fullscreen({
-		position: 'topright',
-		title: {'false': $.t('controls.fullscreen-enter'), 'true': $.t('controls.fullscreen-exit')}
-	}).addTo(map);
-	
 	const hash = new L.Hash(map);
 	const bounds = window.map.bounds;
 	map.setMaxBounds(bounds);
 	
-	const mobile = ($('#sidebar').width() < 300);
-	if(!mobile) {
+	function makeZoomControl() {
+		return new L.Control.Zoom({
+			position: 'topright',
+			zoomInTitle: $.t('controls.zoom-in'),
+			zoomOutTitle: $.t('controls.zoom-out')
+		});
+	}
+	
+	function makeFullscreenControl() {
+		return new L.Control.Fullscreen({
+			position: 'topright',
+			title: {'false': $.t('controls.fullscreen-enter'), 'true': $.t('controls.fullscreen-exit')}
+		});
+	}
+	
+	function makeSearchControl() {
+		const searchData = window.map.markers.map(marker => ({
+			loc: marker.position,
+			title: marker.label
+		}));
 		
-		var searchData = [];
-		$.each(allLayers, function(key, layer) {
-			$.each(layer._layers, function(key, marker) {
-				searchData.push({
-					loc: [marker._latlng.lat, marker._latlng.lng],
-					title: marker._popup._content.replace(/<h1>/, '').replace(/<\/h1>/, ' - ').replace(/\\'/g, '')
-				});
-			});
+		const fuse = new Fuse(searchData, {
+			caseSensitive: false,
+			includeScore: false,
+			shouldSort: true,
+			tokenize: false,
+			threshold: 0.2,
+			location: 0,
+			distance: 10000,
+			maxPatternLength: 32,
+			keys: ["title"]
 		});
 		
-		map.addControl(new L.Control.Search({
+		const search = new L.Control.Search({
 			autoResize: false,
 			autoType: false,
 			minLength: 2,
@@ -94,216 +90,193 @@ $(function() {
 			autoCollapse: false,
 			zoom: 5,
 			text: $.t('controls.search'),
-			filterJSON: function(json) {
-				return json;
-			},
+			filterJSON: json => json,
 			callData: function(text, callResponse) {
-				
-				var options = {
-					caseSensitive: false,
-					includeScore: false,
-					shouldSort: true,
-					tokenize: false,
-					threshold: 0.2,
-					location: 0,
-					distance: 10000,
-					maxPatternLength: 32,
-					keys: ["title"]
-				};
-				var fuse = new Fuse(searchData, options);
-				var result = fuse.search(text);
-				
-				callResponse(result);
-				
-				setTimeout(function() {
-					$('.search-tooltip').getNiceScroll().resize();
-				}, 200);
-				return {
-					abort: function() {
-						console.log('aborted request: ' + text);
-					}
-				};
+				callResponse(fuse.search(text));
+				setTimeout(() => $('.search-tooltip').getNiceScroll().resize(), 200);
+				return {abort: () => console.log('aborted request: ' + text)};
 			}
-		}));
+		});
 		
 		$('.search-tooltip').niceScroll({
 			cursorcolor: '#5E4F32',
 			cursorborder: 'none',
 			horizrailenabled: false
 		});
+		
+		return search;
 	}
 	
-	var layer_settings = {
-		tms: true,
-		bounds: bounds,
-		noWrap: true,
-		continuousWorld: true,
-		crs: L.CRS.Simple
-	};
+	function makeTileLayer(tilePath) {
+		return L.tileLayer(tilePath, {
+			tms: true,
+			bounds: bounds,
+			noWrap: true,
+			continuousWorld: true,
+			crs: L.CRS.Simple
+		});
+	}
 	
-	L.tileLayer(window.map.tilePath, layer_settings).addTo(map);
+	map.addLayer(makeTileLayer(window.map.tilePath));
+	map.addControl(makeZoomControl());
+	map.addControl(makeFullscreenControl());
+	map.addControl(makeSearchControl());
 	
 	map.dragging._draggable.on('predrag', function() {
 		const pos = map._initialTopLeftPoint.subtract(this._newPos);
 		this._newPos = this._newPos.subtract(map._getBoundsOffset(new L.Bounds(pos, pos.add(map.getSize())), map.options.maxBounds));
 	});
 	
-	const waypointIcon = L.icon({
-		iconUrl: '../files/images/icons/marker.png',
-		iconSize: [48, 48]
-	});
+	// waypoint logic
+	let wayPointMarker;
+	
+	function createWayPointMarker() {
+		const icon = L.icon({
+			iconUrl: '/files/images/icons/marker.png',
+			iconSize: [48, 48]
+		});
+		const marker = new L.Marker([0, 0], {icon});
+		marker.on('click', hideWayPointMarker);
+		marker.on('contextmenu', hideWayPointMarker);
+		return marker;
+	}
+	
+	function showWayPointMarkerAt(position) {
+		if(!wayPointMarker) wayPointMarker = createWayPointMarker();
+		wayPointMarker.setLatLng(position);
+		map.addLayer(wayPointMarker);
+		hash.addParam('w', position.lat.toFixed(3) + ',' + position.lng.toFixed(3));
+	}
+	
+	function hideWayPointMarker() {
+		map.removeLayer(wayPointMarker);
+		hash.removeParam('w');
+	}
 	
 	map.on('contextmenu', function(e) {
-		if(!bounds.contains(e.latlng)) {
-			return false;
-		}
-		if(wayPoint) {
-			map.removeLayer(wayPoint);
-		}
-		wayPoint = new L.marker(e.latlng, {
-			icon: waypointIcon
-		}).on('click', function() {
-			map.removeLayer(wayPoint);
-			hash.removeParam('w');
-		}).on('contextmenu', function() {
-			map.removeLayer(wayPoint);
-			hash.removeParam('w');
-		}).addTo(map);
-		hash.addParam('w', e.latlng.lat.toFixed(3) + ',' + e.latlng.lng.toFixed(3));
+		if(!bounds.contains(e.latlng)) return;
+		showWayPointMarkerAt(e.latlng);
 	});
 	
-	$('.leaflet-marker-icon').on('contextmenu', function(e) {
-		return false;
-	});
+	// selected marker logic
+	let circle = null;
 	
-	map.on('popupopen', function(e) {
-		deleteCircle();
-		createCircle(e.popup._latlng.lat, e.popup._latlng.lng);
-		$('#info-wrap').stop();
-		if(localStorage['sfw'] && e.popup._source._popup._content.match(/prostitute/i)) {
-			$('#info').html('<h1>' + $.t('sidebar.loveInterest') + '</h1>' + $.t('misc.loveInterestDesc'));
-		} else {
-			$('#info').html(e.popup._source._popup._content);
-		}
-		$('#info').getNiceScroll(0).doScrollTop(0, 0);
-		$('#info-wrap').fadeIn('fast');
-		if($('#info').html().indexOf('class="note-row"') > -1) {
-			notePopupStart();
-		}
-		console.log('Popup at:');
-		console.log('[' + e.popup._latlng.lat.toFixed(3) + ', ' + e.popup._latlng.lng.toFixed(3) + ']');
-	});
-	
-	var createCircle = function(lat, lng) {
-		var noteKey = getNoteKey(lat, lng);
-		//only add param and show center button if not a note
-		if(!notes[getNoteIndex(noteKey)]) {
-			hash.addParam('m', lat + ',' + lng);
-			$('#centerButton').show();
-		}
-		circle = L.circleMarker(L.latLng(lat, lng), {
+	function createCircleMarker() {
+		return L.circleMarker([0, 0], {
 			color: 'red',
 			fillColor: '#f03',
 			fillOpacity: 0.5,
 			radius: 20
-		}).addTo(map);
-	};
-	
-	var deleteCircle = function() {
-		if(circle !== null) {
-			map.removeLayer(circle);
-			hash.removeParam('m');
-			$('#centerButton').hide();
-		}
-	};
-	
-	var popupClose = function() {
-		$('#info-wrap').fadeOut('fast', function() {
-			$('#info').html('');
-			deleteCircle();
-			map.closePopup();
-		});
-	};
-	
-	map.on('popupclose', function(e) {
-		popupClose();
-		if(notePopupOpen) notePopupEnd();
-	});
-	
-	if(localStorage['markers-' + window.map.name]) {
-		$.each($.parseJSON(localStorage['markers-' + window.map.name]), function(key, val) {
-			if(val === false) {
-				$('i.' + key).parent().addClass('layer-disabled');
-				map.removeLayer(window.markers[key]);
-			}
 		});
 	}
 	
-	$('ul.key:not(.controls) li:not(.none) i').each(function(i, e) {
-		var marker = $(this).attr('class');
-		var pill = $("<div class='pill'>" + (window.markerCount[marker] ?? 0) + "</div>");
-		$(this).next().after(pill);
-		if(localStorage['hide-counts']) {
-			pill.hide();
+	// todo move this
+	function noteExistsAt(position) {
+		const noteKey = getNoteKey(position.lat, position.lng);
+		return notes[getNoteIndex(noteKey)];
+	}
+	
+	function selectMarkerAt(position) {
+		if(!circle) circle = createCircleMarker();
+		circle.setLatLng(position);
+		map.addLayer(circle);
+		
+		// only add param and show center button if the marker is not a note
+		if(!noteExistsAt(position)) {
+			hash.addParam('m', position.lat + ',' + position.lng);
+			$('#centerButton').show();
 		}
-	}).promise().done(function() {
-		if(localStorage['hide-counts']) {
-			$('#hide-counts').hide();
-			$('#show-counts').show();
+	}
+	
+	function deselectMarker() {
+		map.removeLayer(circle);
+		hash.removeParam('m');
+		$('#centerButton').hide();
+	}
+	
+	const infoContentDiv = $('#info-content');
+	const infoContainerDiv = $('#info-container');
+	
+	infoContentDiv.niceScroll({
+		cursorcolor: '#5E4F32',
+		cursorborder: 'none',
+	});
+	
+	// popup logic
+	function openPopup(position, content) {
+		selectMarkerAt(position);
+		infoContainerDiv.stop();
+		infoContentDiv.html(content);
+		infoContentDiv.getNiceScroll(0).doScrollTop(0, 0);
+		infoContainerDiv.fadeIn('fast');
+		// todo this is ugly
+		if(infoContentDiv.html().indexOf('class="note-row"') > -1) {
+			notePopupStart();
 		}
-	});
+		console.log('Popup at [' + writeLatLng(position) + ']');
+	}
 	
-	$('#hide-all').on('click', function(e) {
-		var remember = (!localStorage['markers-' + window.map.name]) ? {} : $.parseJSON(localStorage['markers-' + window.map.name]);
-		$.each(allLayers, function(key, val) {
-			map.removeLayer(val);
+	function closePopup() {
+		infoContainerDiv.fadeOut('fast', () => {
+			infoContentDiv.html('');
+			deselectMarker();
+			map.closePopup();
 		});
-		$.each($('ul.key:not(.controls) li:not(.none) i'), function(key, val) {
-			remember[$(this).attr('class')] = false;
-		});
-		$('ul.key:first li').each(function(id, li) {
-			$(li).addClass('layer-disabled');
-		});
-		$(this).hide();
-		$('#show-all').show();
-		localStorage['markers-' + window.map.name] = JSON.stringify(remember);
-		localStorage['hide-all-' + window.map.name] = true;
-	});
+		if(notePopupOpen) notePopupEnd();
+	}
 	
-	$('#show-all').on('click', function(e) {
-		var remember = (!localStorage['markers-' + window.map.name]) ? {} : $.parseJSON(localStorage['markers-' + window.map.name]);
-		$.each(allLayers, function(key, val) {
-			map.addLayer(val);
-		});
-		$.each($('ul.key:not(.controls) li:not(.none) i'), function(key, val) {
-			remember[$(this).attr('class')] = true;
-		});
-		$('ul.key:first li').each(function(id, li) {
-			$(li).removeClass('layer-disabled');
-		});
-		$(this).hide();
-		$('#hide-all').show();
-		localStorage['markers-' + window.map.name] = JSON.stringify(remember);
-		localStorage.removeItem('hide-all-' + window.map.name);
-	});
+	map.on('popupopen', e => openPopup(e.popup._latlng, e.popup._content));
+	map.on('popupclose', closePopup);
 	
-	$('#hide-counts').on('click', function(e) {
-		$('ul.key:not(.controls) > li:not(.none) i').each(function(i, e) {
-			$(this).siblings(':last').hide();
-		});
-		$(this).hide();
-		$('#show-counts').show();
+	function applyLayerVisibility() {
+		const data = localStorage['markers-' + window.map.name];
+		if(data) {
+			const layerVisibility = JSON.parse(data);
+			for(const [layer, visible] of Object.entries(layerVisibility)) {
+				if(!visible) {
+					$('i.' + layer).parent().addClass('layer-disabled');
+					map.removeLayer(window.layers[layer]);
+				}
+			}
+		}
+	}
+	
+	applyLayerVisibility();
+	
+	function createCounterPills() {
+		for(const e of $('ul.key:not(.controls) li:not(.none) i').toArray()) {
+			const marker = $(e).attr('class');
+			const pill = $("<div class='pill item-count-pill'>" + (window.markerCount[marker] ?? 0) + "</div>");
+			$(e).next().after(pill);
+			if(localStorage['hide-counts']) {
+				pill.hide();
+			}
+		}
+		
+		if(localStorage['hide-counts']) {
+			hideCountsButton.hide();
+			showCountsButton.show();
+		}
+	}
+	
+	createCounterPills();
+	
+	function hideMarkerCounts() {
+		$('.item-count-pill').hide();
+		hideCountsButton.hide();
+		showCountsButton.show();
 		localStorage['hide-counts'] = true;
-	});
+	}
 	
-	$('#show-counts').on('click', function(e) {
-		$('ul.key:not(.controls) > li:not(.none) i').each(function(i, e) {
-			$(this).siblings(':last').show();
-		});
-		$(this).hide();
-		$('#hide-counts').show();
+	function showMarkerCounts() {
+		$('.item-count-pill').show();
+		hideCountsButton.show();
+		showCountsButton.hide();
 		localStorage.removeItem('hide-counts');
-	});
+	}
+	
+	hideCountsButton.on('click', () => hideMarkerCounts());
+	showCountsButton.on('click', () => showMarkerCounts());
 	
 	$('#reset-tracking').on('click', function(e) {
 		e.preventDefault();
@@ -312,117 +285,182 @@ $(function() {
 		}
 	});
 	
-	$(document).on('click', 'li#hide-monsters', function(e) {
-		localStorage['hide-monsters'] = true;
-		$('#info').addClass('hideMonsters');
-		$('#hide-monsters').hide();
-		$('#show-monsters').show();
-	});
-	
-	$(document).on('click', 'li#show-monsters', function(e) {
-		localStorage.removeItem('hide-monsters');
-		$('#info').removeClass('hideMonsters');
-		$('#hide-monsters').show();
-		$('#show-monsters').hide();
-	});
-	
-	$('ul.key:not(.controls)').on('click', 'li:not(.none)', function(e) {
-		var marker = $(this).find('i').attr('class');
-		var remember = (!localStorage['markers-' + window.map.name]) ? {} : $.parseJSON(localStorage['markers-' + window.map.name]);
-		if($(this).hasClass('layer-disabled')) {
-			map.addLayer(window.markers[marker]);
-			$(this).removeClass('layer-disabled');
-			remember[marker] = true;
-		} else {
-			map.removeLayer(window.markers[marker]);
-			$(this).addClass('layer-disabled');
-			remember[marker] = false;
-		}
-		localStorage['markers-' + window.map.name] = JSON.stringify(remember);
-	});
-	
-	var origSidebar;
-	var origBorder;
-	var origHide;
-	var origMap;
-	var origInfoWrap;
-	var origInfo;
-	
-	var hideSidebar = function() {
-		origSidebar = $('#sidebar').css('left');
-		origBorder = $('#sidebar-border').css('left');
-		origHide = $('#hide-sidebar').css('left');
-		origMap = $('#map').css('left');
-		origInfoWrap = $('#info-wrap').css(['left', 'width']);
-		origInfo = $('#info').css(['width', 'margin-right']);
-		
-		$('#info-wrap').css({'left': '0px', 'width': '100%'});
-		$('#info').css({'width': 'auto', 'margin-right': '80px'});
-		$('#map').css('left', '0px');
-		map.invalidateSize();
-		
-		var base = $('#sidebar').outerWidth();
-		$('#sidebar').animate({left: '-' + base + 'px'}, 200);
-		$('#sidebar-border').animate({left: '-' + (base + 15) + 'px'}, 200);
-		$('#hide-sidebar').animate({left: '0px'}, 200, function() {
-			$('#hide-sidebar').addClass('show-sidebar');
-		});
-	};
-	
-	$(document).on('click', 'div#hide-sidebar:not(.show-sidebar)', function(e) {
-		hideSidebar();
-		localStorage['hide-sidebar'] = true;
-	});
-	
-	$(document).on('click', 'div#hide-sidebar.show-sidebar', function(e) {
-		showSidebar($(this));
-		localStorage.removeItem('hide-sidebar');
-	});
-	
-	var showSidebar = function(elem) {
-		$('#sidebar').animate({left: origSidebar}, 200);
-		$(elem).animate({left: origHide}, 200);
-		$('#sidebar-border').animate({left: origBorder}, 200, function() {
-			$('#map').css('left', origMap);
-			map.invalidateSize();
-			$('.show-sidebar').removeClass('show-sidebar');
-			$('#sidebar').attr('style', '');
-			$('#sidebar-border').attr('style', '');
-			$('#info-wrap').css(origInfoWrap);
-			$('#info').css(origInfo);
-			$('#map').attr('style', '');
-		});
-	};
-	
-	if(localStorage['hide-sidebar']) {
-		setTimeout(function() {
-			hideSidebar();
-		}, 500);
+	function toggleMarkerGroup(groupName) {
+		if(isMarkerGroupEnabled(groupName))
+			disableMarkerGroup(groupName);
+		else
+			enableMarkerGroup(groupName);
 	}
 	
-	$(window).on('resize', function() {
-		if($('.show-sidebar').length && $(this).width() > 768) {
-			$('#map').css('left', origMap);
-			map.invalidateSize();
-			$('.show-sidebar').removeClass('show-sidebar');
-			$('#hide-sidebar').attr('style', '');
-			$('#sidebar').attr('style', '');
-			$('#sidebar-border').attr('style', '');
-			$('#info-wrap').attr('style', '');
-			$('#map').attr('style', '');
-		}
+	function parseFromLocalStorage(key, fallback) {
+		const string = localStorage[key];
+		return string === undefined ? fallback : JSON.parse(string);
+	}
+	
+	function saveMarkerGroupVisibility(groupName, visible) {
+		const storageKey = 'markers-' + window.map.name;
+		const enabledMarkers = parseFromLocalStorage(storageKey, {});
+		enabledMarkers[groupName] = visible;
+		localStorage[storageKey] = JSON.stringify(enabledMarkers);
+	}
+	
+	function enableMarkerGroup(groupName) {
+		const li = $('ul.key:not(.controls) i.' + groupName).parent();
+		li.removeClass('layer-disabled');
+		map.addLayer(window.layers[groupName]);
+		saveMarkerGroupVisibility(groupName, true);
+	}
+	
+	window.enableMarkerGroup = enableMarkerGroup;
+	
+	function disableMarkerGroup(groupName) {
+		const li = $('ul.key:not(.controls) i.' + groupName).parent();
+		li.addClass('layer-disabled');
+		map.removeLayer(window.layers[groupName]);
+		saveMarkerGroupVisibility(groupName, false);
+	}
+	
+	window.disableMarkerGroup = disableMarkerGroup;
+	
+	function isMarkerGroupEnabled(groupName) {
+		return !$('ul.key:not(.controls) i.' + groupName).parent()
+			.hasClass('layer-disabled');
+	}
+	
+	window.isMarkerGroupEnabled = isMarkerGroupEnabled;
+	
+	$('ul.key:not(.controls)').on('click', 'li:not(.none)', function() {
+		toggleMarkerGroup($(this).find('i').attr('class'))
 	});
 	
-	$(document).on('click', 'div#warn', function(e) {
-		localStorage['hide-mobile-warning'] = true;
-		$(this).remove();
-	});
+	function initHideAllButton() {
+		hideAllButton.on('click', () => {
+			window.markerTypes.forEach(disableMarkerGroup);
+			hideAllButton.hide();
+			showAllButton.show();
+			localStorage['hide-all-' + window.map.name] = true;
+		});
+	}
+	
+	initHideAllButton();
+	
+	function initShowAllButton() {
+		showAllButton.on('click', () => {
+			window.markerTypes.forEach(enableMarkerGroup);
+			hideAllButton.show();
+			showAllButton.hide();
+			localStorage.removeItem('hide-all-' + window.map.name);
+		});
+	}
+	
+	initShowAllButton();
+	
+	function initSidebar() {
+		const sidebarContainerDiv = $('#sidebar-container');
+		const sidebarToggleDiv = $('#sidebar-toggle');
+		const mapDiv = $('#map');
+		const sidebarAnimationDuration = 200;
+		
+		
+		$('#sidebar').niceScroll({
+			cursorcolor: '#5E4F32',
+			cursorborder: 'none',
+		});
+		
+		let sidebarSmall;
+		let sidebarWidth;
+		let mapLeft;
+		
+		function isSidebarHidden() {
+			return localStorage['hide-sidebar'];
+		}
+		
+		function stopSidebarAnimation() {
+			sidebarContainerDiv.stop();
+			sidebarToggleDiv.stop();
+			mapDiv.stop();
+		}
+		
+		function hideSidebar(duration) {
+			stopSidebarAnimation();
+			infoContainerDiv.addClass('full-width');
+			sidebarToggleDiv.addClass('show-sidebar');
+			sidebarToggleDiv.animate({left: '0px'}, duration);
+			sidebarContainerDiv.animate({width: '15px'}, duration);
+			mapDiv.animate({left: '0px'}, {duration,
+				step: () => map.invalidateSize(),
+				complete: () => map.invalidateSize()});
+			localStorage['hide-sidebar'] = true;
+		}
+		
+		function showSidebar(duration) {
+			stopSidebarAnimation();
+			sidebarToggleDiv.animate({left: mapLeft + 'px'}, duration);
+			sidebarToggleDiv.removeClass('show-sidebar');
+			mapDiv.animate({left: mapLeft + 'px'}, {duration,
+				step: () => map.invalidateSize(),
+				complete: () => map.invalidateSize()});
+			sidebarContainerDiv.animate({width: sidebarWidth + 'px'}, duration, function() {
+				infoContainerDiv.removeClass('full-width');
+			});
+			localStorage.removeItem('hide-sidebar');
+		}
+		
+		function toggleSidebar() {
+			if(isSidebarHidden())
+				showSidebar(sidebarAnimationDuration);
+			else
+				hideSidebar(sidebarAnimationDuration);
+		}
+		
+		function updateSidebar() {
+			sidebarSmall = $(window).width() <= 768;
+			sidebarWidth = sidebarSmall ? 220 : 400;
+			mapLeft = sidebarWidth - 15;
+			stopSidebarAnimation();
+			if(isSidebarHidden()) {
+				hideSidebar(0);
+			} else {
+				showSidebar(0);
+			}
+			map.invalidateSize();
+		}
+		
+		updateSidebar();
+		
+		sidebarToggleDiv.on('click', () => toggleSidebar());
+		$(window).on('resize', () => updateSidebar());
+	}
+	
+	initSidebar();
+	
+	function initMobileWarning() {
+		const mobileWarningDiv = $('div#mobile-warning');
+		
+		function removeMobileWarning() {
+			mobileWarningDiv.remove();
+		}
+		
+		if(localStorage['hide-mobile-warning']) {
+			removeMobileWarning();
+		} else {
+			mobileWarningDiv.css({display: 'block'});
+		}
+		
+		mobileWarningDiv.on('click', function(e) {
+			localStorage['hide-mobile-warning'] = true;
+			removeMobileWarning();
+		});
+	}
+	
+	initMobileWarning();
 	
 	var popupClick = function(e) {
 		if($(e.target).is('#popup-content') || $(e.toElement.offsetParent).is('#popup-content') || $(e.toElement.offsetParent).is('#popup-wrap')) {
 			return;
 		}
-		popupClose();
+		console.log("popupClick");
+		closePopup();
 	};
 	
 	window.popupClose = function() {
@@ -452,7 +490,7 @@ $(function() {
 			'<li><a href="https://github.com/msmorgan" target="_blank">msmorgan</a> - Javascript &amp; map data structure improvements</li>',
 			'</ul>',
 			'<h3>Sniper Elite 4 Assets</h3>',
-			'<p>Sniper Elite 4 logo, icons, map &amp; text are the property of <a href="http://www.rebellion.co.uk/" target="_blank">Rebellion</a> and used without there permission. </p>',
+			'<p>Sniper Elite 4 logo, icons, map &amp; text are the property of <a href="http://www.rebellion.co.uk/" target="_blank">Rebellion</a> and used without their permission. </p>',
 			'<h3>Javascript libraries used</h3>',
 			'<ul>',
 			'<li><a href="http://jquery.com" target="_blank">jQuery</a> (MIT)</li>',
@@ -491,7 +529,7 @@ $(function() {
 				});
 			}
 			
-			$("#sidebar-wrap").append(tooltip);
+			$("#sidebar-content").append(tooltip);
 		});
 		$('ul.controls li:not(.none) i').each(function(i, e) {
 			var key = $(this).next().text();
@@ -515,7 +553,7 @@ $(function() {
 				});
 			}
 			
-			$("#sidebar-wrap").append(tooltip);
+			$("#sidebar-content").append(tooltip);
 		});
 	}, 100);
 	
@@ -549,7 +587,7 @@ $(function() {
 			reader.onload = function(e) {
 				var content = e.target.result;
 				try {
-					var restoreData = $.parseJSON(content);
+					var restoreData = JSON.parse(content);
 					console.log('restore started.');
 					for(var prop in restoreData) {
 						console.log('restoring property:' + prop + ' using value:' + restoreData[prop]);
@@ -599,9 +637,8 @@ $(function() {
 		}
 	}, $.t('controls.center-on-focused-marker'), 'centerButton').addTo(map);
 	
-	window.getNoteKey = function(lat, lng) {
-		return lat.toFixed(3) + '_' + lng.toFixed(3);
-	};
+	// todo replace this?
+	window.getNoteKey = (lat, lng) => writeLatLng(L.latLng(lat, lng));
 	
 	window.getNoteIndex = function(noteKey) {
 		for(var i = 0; i < notes.length; i++) {
@@ -644,7 +681,7 @@ $(function() {
 		notes.splice(getNoteIndex(noteKey), 1);
 		delete noteMarkers[noteKey];
 		backupNotes();
-		popupClose();
+		closePopup();
 	};
 	
 	var getNotePopup = function(note) {
@@ -691,7 +728,7 @@ $(function() {
 	
 	var notePopupStart = function() {
 		notePopupOpen = true;
-		$('#info').i18n();
+		infoContentDiv.i18n();
 		$('#note-label, #note-title, #note-text').on('keyup.notechange', function() {
 			$('#note-save').attr('disabled', false);
 		});
@@ -704,37 +741,41 @@ $(function() {
 	};
 	
 	//create saved notes on load
-	for(var i = 0; i < notes.length; i++) {
+	for(let i = 0; i < notes.length; i++) {
 		createNote(notes[i]);
 	}
 	
-	var hashParams = hash.getHashParams();
-	if(hashParams) {
-		if(hashParams.w) {
-			var hashWayPoint = hashParams.w.split(",");
-			wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
-				icon: waypointIcon
-			}).on('click', function() {
-				map.removeLayer(wayPoint);
-				hash.removeParam('w');
-			}).on('contextmenu', function() {
-				map.removeLayer(wayPoint);
-				hash.removeParam('w');
-			}).addTo(map);
-		}
-		if(hashParams.m) {
-			var hashMarker = hashParams.m.split(",");
-			$.each(allLayers, function(key, val) {
-				$.each(val.getLayers(), function(key, marker) {
-					if(hashMarker[0] == marker._latlng.lat && hashMarker[1] == marker._latlng.lng) {
+	function writeLatLng(latlng) {
+		return latlng.lat.toFixed(3) + ',' + latlng.lng.toFixed(3);
+	}
+	
+	function parseLatLng(str) {
+		const parts = str.split(',');
+		return L.latLng(parts[0], parts[1]);
+	}
+	
+	function applyHashParams() {
+		const hashParams = hash.getHashParams();
+		if(hashParams) {
+			if(hashParams.w) {
+				showWayPointMarkerAt(parseLatLng(hashParams.w));
+			}
+			if(hashParams.m) {
+				const position = parseLatLng(hashParams.m);
+				
+				for(const marker of allLayers.flatMap(layer => layer.getLayers())) {
+					if(marker.getLatLng().equals(position)) {
 						marker.openPopup();
+						break;
 					}
-				});
-			});
+				}
+			} else {
+				$('#centerButton').hide();
+			}
 		} else {
 			$('#centerButton').hide();
 		}
-	} else {
-		$('#centerButton').hide();
 	}
+	
+	applyHashParams();
 });

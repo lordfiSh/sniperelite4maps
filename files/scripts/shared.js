@@ -3,13 +3,13 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 (() => {
 	// each of these have the marker type as index
 	window.icons = {};
-	window.markers = {};
+	window.layers = {};
 	window.markerCount = {};
 	// list of coordinate strings of hidden markers (current map only)
 	window.transparentMarkers = [];
 	window.notes = [];
 	
-	const namespaceMap = {
+	const namespaceMap = window.namespaceMap = {
 		a: 'm01-san-celini-island',
 		b: 'm02-bitanti-village',
 		c: 'm03-regilino-viaduct',
@@ -26,7 +26,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		n: 'ow02-railyard',
 	}
 	
-	const markerTypes = [
+	const markerTypes = window.markerTypes = [
 		'deadeye-target',
 		'letter-from-home',
 		'letter-to-home',
@@ -170,7 +170,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		
 		for(const type in layers) {
 			const layer = layers[type];
-			window.markers[type] = L.layerGroup(layer);
+			window.layers[type] = L.layerGroup(layer);
 		}
 	}
 	
@@ -182,7 +182,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	}
 	
 	async function init() {
-		const namespace = location.pathname.match(/\/(\w+)\/(?:index.html)?$/)[1];
+		const namespace = location.pathname.match(/\/(\w+)\/?$/)[1];
 		const mapName = namespaceMap[namespace];
 		
 		await $.i18n.init(i18noptions);
