@@ -24,9 +24,9 @@ window.map.markers = [
 	makeMarker('last-letter', 1, 44.234, 114.734),
 	makeMarker('last-letter', 2, 132.594, 125.141),
 	makeMarker('last-letter', 3, 80.219, 104.750),
-	makeMarker('last-letter', 4, 101.500, 93.703),
+	makeMarker('last-letter', 4, 106.844, 91.438),
 	makeMarker('last-letter', 5, 110.031, 126.234),
-
+	
 	makeMarker('misc-document', 1, 133.719, 122.469),
 	makeMarker('misc-document', 2, 47.344, 119.781),
 	makeMarker('misc-document', 3, 105.563, 133.594),
@@ -46,7 +46,7 @@ window.map.markers = [
 	makeMarker('deadeye-target', 1, 63.672, 156.328),
 	makeMarker('deadeye-target', 2, 107.422, 59.297),
 	makeMarker('deadeye-target', 3, 42.906, 106.188),
-
+	
 	makeMarker('generator', 0, 42.359, 106.078),
 	makeMarker('generator', 0, 56.188, 102.547),
 	makeMarker('generator', 0, 106.109, 58.375),
@@ -67,7 +67,7 @@ window.map.markers = [
 	makeMarker('objective-optional', 1, 135.469, 120.141),
 	
 	makeMarker('objective-optional', 2, 80.688, 122.313),
-
+	
 	makeMarker('objective-exit', 1, 96.438, 111.656),
 	makeMarker('objective-exit', 1, 41.063, 118.516)
 ];

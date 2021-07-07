@@ -18,7 +18,7 @@ window.map.markers = [
 	
 	makeMarker('letter-to-home', 1, 140.453, 113.938),
 	makeMarker('letter-to-home', 2, 93.406, 109.094),
-	makeMarker('letter-to-home', 3, 81.531, 131.375),
+	makeMarker('letter-to-home', 3, 81.953, 139.672),
 	makeMarker('letter-to-home', 4, 77.625, 177.922),
 	makeMarker('letter-to-home', 5, 107.500, 89.000),
 	
@@ -51,7 +51,7 @@ window.map.markers = [
 	makeMarker('deadeye-target', 1, 81.875, 181.407),
 	makeMarker('deadeye-target', 2, 126.281, 160.406),
 	makeMarker('deadeye-target', 3, 84.906, 132.735),
-
+	
 	makeMarker('generator', 0, 112.359, 95.938),
 	makeMarker('generator', 0, 89.469, 108.500),
 	makeMarker('generator', 0, 103.625, 188.688),

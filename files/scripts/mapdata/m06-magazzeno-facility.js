@@ -11,7 +11,7 @@ window.map = {
 window.map.markers = [
 	makeMarker('letter-from-home', 1, 126.500, 76.219),
 	makeMarker('letter-from-home', 2, 112.125, 107.484),
-	makeMarker('letter-from-home', 3, 108.641, 79.469),
+	makeMarker('letter-from-home', 3, 105.438, 79.469),
 	makeMarker('letter-from-home', 4, 86.641, 82.078),
 	makeMarker('letter-from-home', 5, 70.859, 102.438),
 	
@@ -21,9 +21,9 @@ window.map.markers = [
 	makeMarker('letter-to-home', 4, 132.578, 76.297),
 	makeMarker('letter-to-home', 5, 62.781, 63.109),
 	
-	makeMarker('last-letter', 1, 132.484, 85.719),
+	makeMarker('last-letter', 1, 113.781, 73.219),
 	makeMarker('last-letter', 2, 89.656, 103.000),
-	makeMarker('last-letter', 3, 113.781, 73.219),
+	makeMarker('last-letter', 3, 132.484, 85.719),
 	makeMarker('last-letter', 4, 93.531, 66.266),
 	makeMarker('last-letter', 5, 73.703, 83.984),
 	
