@@ -27,10 +27,10 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-body {
+html, body {
+	height: 100%;
 	padding: 0;
 	margin: 0;
-	background: #000;
 	overflow: hidden;
 }
 div#map {
@@ -39,32 +39,35 @@ div#map {
 	right: 0;
 	bottom: 0;
 	left: 375px;
-	z-index: -1;
+}
+div#sidebar-container {
+	position: relative;
+	width: 400px;
+	height: 100%;
 }
 div#sidebar {
-	width: 360px;
 	position: absolute;
+	width: 360px;
 	top: 0;
-	left: 0;
 	bottom: 0;
-	z-index: 1;
+	right: 15px;
 	background: #000;
 	padding: 15px 10px 0px 15px;
 	font-family: 'PFDinTextCondPro', Arial, sans-serif;
 	color: #fff;
 	overflow: hidden;
+	outline: none;
 }
 div#sidebar-border {
+	position: absolute;
 	width: 15px;
 	background-repeat: repeat-y;
 	background-image: url('../images/border.png');
-	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: 385px;
 }
-div#sidebar-wrap > span.tooltip {
+div#sidebar-content > span.tooltip {
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.7);
     background-clip: padding-box;
@@ -101,7 +104,7 @@ div#logo {
 }
 ul.key {
 	list-style-type: none;
-	margin: 0;
+	margin: 20px 0 0 0;
 	padding: 0;
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
@@ -144,7 +147,7 @@ ul.key > li > a > i {
 ul.key > li > div, ul.key > li > a > div {
 	line-height: 21px;
 	white-space: nowrap;
-	width: 120px;
+	width: 125px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	float: left;
@@ -155,7 +158,6 @@ ul.controls > li > div, ul.controls > li > a > div {
 ul.key > li > div.pill {
 	background-color:#97702F;
 	box-shadow: 1px 1px 3px #000000 inset;
-	margin-left:5px;
 	padding:2px 3px 0px 4px;
 	color:#000000;
 	border-radius:7px;
@@ -188,7 +190,7 @@ ul.key > li.layer-disabled > i {
 	opacity: 0.6;
 }
 ul.controls {
-	margin-top: 10px;
+	margin: 10px 0 10px 0;
 	font-weight: bold;
 }
 ul.key  li.none {
@@ -207,7 +209,7 @@ div#note {
 div#note span#note-msg {
 	display: inline-block;
 	vertical-align: middle;
-	line-height: normal;  
+	line-height: normal;
 }
 div#note a {
 	color: #000;
@@ -282,13 +284,9 @@ div#copyright {
 	color: #999;
 	margin-top: 15px;
 	margin-bottom: 5px;
-}
-div#copyright.absolute {
-	width: 380px;
+	width: 360px;
 	position: absolute;
 	bottom: 5px;
-	left: 0;
-	padding-left:5px;
 }
 div#copyright a,
 div#copyright a:visited,
@@ -300,7 +298,7 @@ div#copyright a:hover {
 	color: #ddd;
 	text-decoration: underline;
 }
-div#info-wrap {
+div#info-container {
 	position: absolute;
 	left: 380px;
 	bottom: 0;
@@ -310,18 +308,35 @@ div#info-wrap {
 	z-index: 2;
 	display: none;
 }
-div#info-wrap a {
+div#info-container a {
 	color: #B08948;
 }
-div#info {
+div#info-container.full-width {
+	left: 0px;
+	width: 100%;
+}
+div#info-container.full-width div#info-content {
+	width: auto;
+}
+div#info-container.full-width div#info-fade-outro {
+	display: none;
+}
+div#info-content {
 	width: 520px;
 	margin-left: 20px;
-	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.7);
 	padding-bottom: 10px;
 	font-size: 18px;
 	line-height: 21px;
 	cursor: default;
+	max-height: 100px;
+}
+div#info-content small {
+	display: block;
+	margin-top: 4px;
+	line-height: 15px;
+	font-size: 14px;
+	font-style: italic;
 }
 div#info-fade-intro {
 	position: absolute;
@@ -341,7 +356,7 @@ div#info-fade-outro {
 	width: 80px;
 	background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
-div#info h1 {
+div#info-content h1 {
 	text-transform: uppercase;
 	margin: 0;
 	padding: 10px 0 5px 0;
@@ -387,9 +402,6 @@ div#note-popup label.top {
 	vertical-align: top;
 	padding-top: 4px;
 }
-div#info.hideMonsters span {
-	display: none;
-}
 div#title {
 	position: absolute;
 	width: 200px;
@@ -407,13 +419,13 @@ div#title {
 	text-align: center;
 	line-height: 52px;
 }
-div#warn {
+div#mobile-warning {
 	display: none;
 }
-div#hide-sidebar {
+div#sidebar-toggle {
 	display: block;
 	position: absolute;
-	left: 390px;
+	left: 385px;
 	top: 0px;
 	background: rgba(0, 0, 0, .7) url(../images/sidebarhide.png) no-repeat 0px 3px;
 	border-bottom-right-radius: 8px;
@@ -421,7 +433,7 @@ div#hide-sidebar {
 	height: 32px;
 	cursor: pointer;
 }
-div#hide-sidebar.show-sidebar {
+div#sidebar-toggle.show-sidebar {
 	left: 0px;
 	background-position: -22px 3px;
 }
@@ -502,11 +514,11 @@ div#popup-wrap img#popup-close {
 	div#sidebar {
 		width: 180px;
 	}
-	div#hide-sidebar {
-		left: 210px;
-	}
-	div#sidebar-border {
+	div#sidebar-toggle {
 		left: 205px;
+	}
+	div#sidebar-container {
+		width: 220px;
 	}
 	div#map {
 		left: 205px;
@@ -527,17 +539,6 @@ div#popup-wrap img#popup-close {
 	div#note {
 		display: none;
 	}
-	div#sfw, div#copyright {
-		width: auto;
-		position: relative;
-		bottom: auto;
-		left: auto;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	div#copyright {
-		display: none;
-	}
 	div#popup-wrap {
 		display: block;
 		max-width: 95%;
@@ -555,18 +556,21 @@ div#popup-wrap img#popup-close {
 		max-height: none;
 		height: calc(100% - 52px);
 	}
-	div#info-wrap {
+	div#copyright {
+		width: 180px;
+	}
+	div#info-container {
 		left: 205px;
 		width: calc(100% - 205px);
 	}
 	div#info-fade-intro {
 		width: 10px;
 	}
-	div#info h1 {
+	div#info-content h1 {
 		font-size: 17px;
 		padding: 8px 0 2px 0;
 	}
-	div#info {
+	div#info-content {
 		width: calc(100% - 18px);
 		padding-right: 8px;
 		padding-bottom: 5px;
@@ -585,8 +589,8 @@ div#popup-wrap img#popup-close {
 	}
 }
 @media all and (max-width: 768px) and (orientation:portrait) {
-	div#warn {
-		display: block;
+	div#mobile-warning {
+		display: none;
 		margin: auto;
 		position: absolute;
 		top: 0;
@@ -608,18 +612,22 @@ div#popup-wrap img#popup-close {
 	}
 }
 
-i.gearbit { background-image:url('../images/icons/deadeye.png'); }
-i.gearbitdrop { background-image:url('../images/icons/letter_from_home.png'); }
-i.key { background-image:url('../images/icons/last_letter.png'); }
-i.module { background-image:url('../images/icons/duty_poster.png'); }
-i.gun { background-image:url('../images/icons/letter_to_home.png'); }
-i.outfit { background-image:url('../images/icons/misc_docs.png'); }
-i.monolith { background-image:url('../images/icons/sniper_reports.png'); }
-i.star { background-image:url('../images/icons/star.png'); }
-i.soundmask { background-image:url('../images/icons/soundmask.png'); }
-i.star { background-image:url('../images/icons/star.png'); }
+i.letter-from-home { background-image:url('../images/icons/letter-from-home.png'); }
+i.letter-to-home { background-image:url('../images/icons/letter-to-home.png'); }
+i.last-letter { background-image:url('../images/icons/last-letter.png'); }
+i.misc-document { background-image:url('../images/icons/misc-document.png'); }
+i.duty-roster { background-image:url('../images/icons/duty-roster.png'); }
+i.sniper-report { background-image:url('../images/icons/sniper-report.png'); }
+i.deadeye-target { background-image:url('../images/icons/deadeye-target.png'); }
+i.generator { background-image:url('../images/icons/generator.png'); }
+i.objective-primary { background-image:url('../images/icons/objective-primary.png'); }
+i.objective-optional { background-image:url('../images/icons/objective-optional.png'); }
+i.objective-exit { background-image:url('../images/icons/objective-exit.png'); }
 
-
+.leaflet-marker-icon {
+	filter: drop-shadow(0px 0px 3px black);
+	-webkit-filter: drop-shadow(0px 0px 3px black);
+}
 .leaflet-container {
 	background: #222;
 }

@@ -1,9 +1,5 @@
-var isRoot = (location.pathname.match(/\/(\w{1})\/(?:index.html)?$/)) ? false : true;
-
-if (localStorage['lang'] == null) {
-	var lang = window.navigator.userLanguage || window.navigator.language;
-	lang = lang.substring(0,2);
-	localStorage['lang'] = lang;
+if(localStorage['lang'] == null) {
+	localStorage['lang'] = window.navigator.language.substring(0, 2);
 }
 
 //i18n options
@@ -13,18 +9,26 @@ window.i18noptions = {
 	ns: 'general',
 	lng: localStorage['lang'],
 	fallbackLng: 'en',
-	resGetPath: ((isRoot) ? "" : "../")+'files/locales/__lng__/__ns__.json',
+	resGetPath: '/files/locales/__lng__/__ns__.json',
 	useDataAttrOptions: true,
-	lngWhitelist: [ 'en', 'de' ]
+	lngWhitelist: ['en', 'de']
 };
 
-var languageOptions = [
-	{text: "English",value: "en",selected: (localStorage['lang'] == "en" ? true : false), description: " ",imageSrc: ((isRoot) ? "" : "../")+"files/images/flags/en.png"},
-	{text: "Deutsch",value: "de",selected: (localStorage['lang'] == "de" ? true : false),description: " ",imageSrc: ((isRoot) ? "" : "../")+"files/images/flags/de.png"},
+const makeLanguageOption = (code, text) => ({
+	text,
+	value: code,
+	selected: localStorage['lang'] === code,
+	description: " ",
+	imageSrc: `/files/images/flags/${code}.png`
+});
+
+const languageOptions = [
+	makeLanguageOption('en', "English"),
+	makeLanguageOption('de', "Deutsch"),
 ];
 
 window.changeLang = function(lang) {
-	if(localStorage['lang'] != lang) {
+	if(localStorage['lang'] !== lang) {
 		localStorage['lang'] = lang;
 		window.location.reload();
 	}
@@ -34,17 +38,6 @@ $(function() {
 	$('#lang-switcher').ddslick({
 		data: languageOptions,
 		width: 150,
-		onSelected: function(obj){
-			changeLang(obj.selectedData.value);
-		}
+		onSelected: obj => changeLang(obj.selectedData.value)
 	});
 });
-
-jQuery.cachedScript = function( url, options ) {
-	options = $.extend( options || {}, {
-		dataType: "script",
-		cache: true,
-		url: url
-	});
-	return jQuery.ajax( options );
-};

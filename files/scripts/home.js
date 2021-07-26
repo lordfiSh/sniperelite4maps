@@ -1,151 +1,81 @@
-//empty mocks to avoid errors on mapdata files
-var L = {};
-L.latLng = function() {};
-window.markers = {};
-
-//i18n init to translate search results
-$.i18n.init(i18noptions, function() {
-	$.i18n.loadNamespace('v', function() {
-		$.cachedScript("files/scripts/mapdata-velen.js").done(function(script, textStatus) {
-			$.i18n.loadNamespace('s', function() {
-				$.cachedScript("files/scripts/mapdata-skellige.js").done(function(script, textStatus) {
-					$.i18n.loadNamespace('w', function() {
-						$.cachedScript("files/scripts/mapdata-white_orchard.js").done(function(script, textStatus) {
-							$.i18n.loadNamespace('k', function() {
-								$.cachedScript("files/scripts/mapdata-kaer_morhen.js").done(function(script, textStatus) {
-									$.i18n.loadNamespace('t', function() {
-										$.cachedScript("files/scripts/mapdata-toussaint.js").done(function(script, textStatus) {
-
-											processData('velen', mapdata_velen);
-											processData('skellige', mapdata_skellige);
-											processData('white_orchard', mapdata_white_orchard);
-											processData('kaer_morhen', mapdata_kaer_morhen);
-											processData('toussaint', mapdata_toussaint);
-
-											var searchInput = $('#search');
-
-											//bind the search when all scripts are loaded
-											searchInput.keyup(function() {
-												doSearch();
-											});
-
-											//auto search when coming from back button
-											if(searchInput.val()) doSearch();
-
-											$('#clear').click(function () {
-												$('#search').val('');
-												$('#results').empty();
-												$('#clear').hide();
-												$('#nav').show();
-											});
-
-											$(document).i18n();
-										});
-									});
-								});
-							});
-						});
-					});
-				});
-			});
-		});
-	});
-});
-
-//mocks shared.js processData function to generate search results
-var count = 0;
-var mapdata = [];
-var processData = function(map_path, data) {
-	var mapKey = map_path.charAt(0);
-	$.each(data, function(markerType,markers) {
-		$.each(markers, function(index,marker) {
-			if (!marker || !marker.popup) {
-				return;
-			}
-			var link = window.location.href.replace(window.location.hash, '')+mapKey+'/#3/'+marker.coords[0][0]+'/'+marker.coords[0][1]+'/m='+marker.coords[0][0]+','+marker.coords[0][1];
-			var popupText = marker.popup.replace(/<\/?[^>]+(>|$)/g,"");
-			var popupTitle = (marker.popupTitle ? marker.popupTitle : '' );
-			var label;
-			if(popupTitle === '') {
-				label = marker.label;
-			} else if(popupTitle.indexOf(marker.label) > -1) {
-				label = popupTitle;
-			} else {
-				label = marker.label+' ('+popupTitle+')';
-			}
-
-			mapdata.push({
-				'id': count,
-				'map': $.t('maps.'+map_path),
-				'label':label,
-				'popup':popupText,
-				'link':link
-			});
-
-			count++;
-		});
-	});
-};
-
-
-
-//search function
-var doSearch = function() {
-	var searchElement = $('#search');
-	var resultsElement = $('#results');
-	var searchText = searchElement.val();
-	if(searchText.length === 0) {
-		resultsElement.empty();
-		$('#clear').hide();
-		$('#nav').show();
-		return;
-	} else {
-		$('#clear').show();
-		$('#nav').hide();
-	}
-
-	var options = {
-		caseSensitive: false,
-		includeScore: false,
-		shouldSort: true,
-		tokenize: false,
-		threshold: 0.2,
-		location: 0,
-		distance: 10000,
-		maxPatternLength: 32,
-		keys: ["map","label","popup"]
-	};
-	var fuse = new Fuse(mapdata, options);
-	var result = fuse.search(searchText);
-
-	resultsElement.empty();
-	var count = '<li>'+result.length+' '+$.t('home.resultsFound')+'</li>';
-	resultsElement.append($(count));
-	var resultsLength = result.length;
-	for(i=0;i<resultsLength;i++) {
-		var item = '<li><div><a href="'+result[i].link+'">'+result[i].label+' - '+result[i].map+'</a></div><div class="searchDescription"><div class="truncated" onclick="toggleTruncate(event, this)">'+result[i].popup+'</div></div></li>';
-		resultsElement.append($(item));
-	}
-};
-
-var toggleTruncate = function(e, element) {
-	e.preventDefault();
-	e.stopPropagation();
-	$(element).toggleClass("truncated");
-};
-
-$(function() {
-	var s = $('#search-input-wrapper');
-	var pos = s.position();
-	//setup sticky searchbar
-	$(window).scroll(function() {
-		var windowpos = $(window).scrollTop();
-		if (windowpos >= pos.top) {
-			if($('#search').val()) {
-				s.addClass("sticky");
-			}
-		} else {
-			s.removeClass("sticky");
+(() => {
+	const imageCache = {};
+	
+	function loadImage(path) {
+		if(imageCache[path]) {
+			//console.log('serving image from cache: ' + path);
+			return path;
 		}
-	});
-});
+		
+		return new Promise(resolve => {
+			//console.log('requesting image ' + path);
+			const im = new Image();
+			im.onload = function() {
+				//console.log('loaded image ' + path);
+				imageCache[path] = im;
+				resolve(path);
+			};
+			im.src = path;
+		});
+	}
+	
+	let isInTransition = false;
+	let transitionPromise = null;
+	let currentImage = localStorage['start-page-background'] ?? '/files/images/backgrounds/m01-san-celini-island.png';
+	let nextImage = '';
+	let lastRequestPath = '';
+	let lastRequest = 0;
+	
+	const imageLayer = $("#background");
+	const fadeLayer = $("#background-fade-layer");
+	
+	async function performTransition() {
+		isInTransition = true;
+		const image = currentImage = nextImage;
+		await fadeLayer.attr("src", image).promise();
+		await fadeLayer.fadeTo(500, 1).promise();
+		await imageLayer.attr("src", image).promise();
+		await fadeLayer.fadeTo(0, 0).promise();
+		isInTransition = false;
+	}
+	
+	async function setBackground(path) {
+		// throw out duplicate events
+		if(path === lastRequestPath) return;
+		
+		const request = ++lastRequest;
+		
+		localStorage['start-page-background'] = lastRequestPath = path;
+		nextImage = await loadImage(path);
+		
+		if(isInTransition) {
+			// wait for the current transition to finish
+			await transitionPromise;
+			// only the newest request should continue
+			if(lastRequest !== request) return;
+			// if the current image is already the right one, we have nothing to do
+			if(currentImage === lastRequestPath) return;
+		}
+		
+		// if we got here, we know that no transition is running
+		// and we are the most recent request.
+		transitionPromise = performTransition();
+		await transitionPromise;
+		transitionPromise = null;
+	}
+	
+	$('#nav li').each((_, item) => {
+		const mapName = $(item).attr('data-map-name');
+		$(item).on('mouseover', async () => {
+			await setBackground(`/files/images/backgrounds/${mapName}.png`);
+		})
+	})
+	
+	async function init() {
+		await $.i18n.init(i18noptions);
+		$(document).i18n();
+	}
+	
+	$(imageLayer).attr('src', currentImage);
+	init().then(() => console.log('initialization complete'));
+})();

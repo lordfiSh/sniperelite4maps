@@ -1,198 +1,204 @@
-L.Icon.Default.imagePath = '../files/images/leaflet';
+L.Icon.Default.imagePath = '/files/images/leaflet';
 
-var getMapdata = function(mapname) {
-	$.cachedScript("../files/scripts/mapdata-"+mapname+".js").done(function(script, textStatus) {
-		$.cachedScript("../files/scripts/custom.js").done(function(script, textStatus) {
-			$(document).i18n();
-		});
-	});
-};
-
-$.i18n.init(i18noptions, function() {
-	var namespace = location.pathname.match(/\/(\w{1})\/(?:index.html)?$/)[1];
-	$.i18n.loadNamespace(namespace, function() {
-		if (namespace == "z") {
-			getMapdata('san_celini_island_v2');
-		} else if (namespace == "b") {
-			getMapdata('bitanti_village');
-		} else if (namespace == "c") {
-			getMapdata('regilino_viaduct');
-		} else if (namespace == "d") {
-			getMapdata('lorino_dockyard');
-		} else if (namespace == "e") {
-			getMapdata('abrunza_monastery');
-		} else if (namespace == "f") {
-			getMapdata('magazzenno_facility');
-		} else if (namespace == "g") {
-			getMapdata('mansion');
-		} else if (namespace == "h") {
-			getMapdata('fortress');
-		} else if (namespace == "i") {
-			getMapdata('dlc1');
+(() => {
+	// each of these have the marker type as index
+	window.icons = {};
+	window.layers = {};
+	window.markerCount = {};
+	// list of coordinate strings of hidden markers (current map only)
+	window.transparentMarkers = [];
+	window.notes = [];
+	
+	const namespaceMap = window.namespaceMap = {
+		a: 'm01-san-celini-island',
+		b: 'm02-bitanti-village',
+		c: 'm03-regilino-viaduct',
+		d: 'm04-lorino-dockyard',
+		e: 'm05-abrunza-monastery',
+		f: 'm06-magazzeno-facility',
+		g: 'm07-giovi-fiorini-mansion',
+		h: 'm08-allagra-fortress',
+		i: 'dlc1-target-fuehrer',
+		j: 'dlc2-inception',
+		k: 'dlc3-infiltration',
+		l: 'dlc4-obliteration',
+		m: 'ow01-compound',
+		n: 'ow02-railyard',
+	}
+	
+	const markerTypes = window.markerTypes = [
+		'deadeye-target',
+		'letter-from-home',
+		'letter-to-home',
+		'last-letter',
+		'duty-roster',
+		'sniper-report',
+		'misc-document',
+		'generator',
+		'objective-primary',
+		'objective-optional',
+		'objective-exit'
+	];
+	
+	const transparentMarkerOpacity = 0.5;
+	
+	function loadNotes() {
+		const key = `notes-${window.map.name}`;
+		window.notes = JSON.parse(localStorage[key] ?? "[]");
+	}
+	
+	function saveNotes() {
+		const key = `notes-${window.map.name}`;
+		localStorage[key] = JSON.stringify(window.notes);
+	}
+	
+	// transparent marker logic
+	
+	function loadTransparentMarkers() {
+		const key = `transparent-markers-${window.map.name}`;
+		window.transparentMarkers = JSON.parse(localStorage[key] ?? "[]");
+	}
+	
+	function saveTransparentMarkers() {
+		const key = `transparent-markers-${window.map.name}`;
+		localStorage[key] = JSON.stringify(window.transparentMarkers);
+	}
+	
+	function resetTransparentMarkers() {
+		window.transparentMarkers = [];
+		saveTransparentMarkers();
+		location.reload();
+	}
+	
+	window.resetTransparentMarkers = resetTransparentMarkers;
+	
+	function isMarkerTransparent(lat, lng) {
+		return transparentMarkers.includes(lat + ';' + lng);
+	}
+	
+	function setMarkerTransparency(lat, lng, marker, type, transparent) {
+		if(transparent === isMarkerTransparent(lat, lng)) return;
+		if(transparent) {
+			marker.setOpacity(transparentMarkerOpacity);
+			markerCount[type]--;
+			transparentMarkers.push(lat + ';' + lng);
+		} else {
+			marker.setOpacity(1.0);
+			markerCount[type]++;
+			transparentMarkers.splice(transparentMarkers.indexOf(lat + ';' + lng), 1);
 		}
-	});
-});
-
-$(function() {
-	//fix bug where sidebar scrollbar doesn't appear when the language drop-down opens
-	$('.dd-selected').on('click', function() {
-		setTimeout(function() {
-			$("#sidebar").getNiceScroll().resize();
-		}, 500);
-	});
-});
-
-window.createMarker = function (coord, icon, label, popup, dataKey) {
-	var mapKey = 'markers-' + map_path + '-hidden';
-	var marker = L.marker(coord, setMarker(icon)).bindLabel(label).bindPopup(popup);
-
-	marker.on('contextmenu', function (e) {
-		toggleOpacity(e, mapKey);
-		updatePills(e, dataKey);
-	});
-
-	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng)) {
-		marker.setOpacity(invisibleMarkerOpacity);
-		if(!markerCount[dataKey]) markerCount[dataKey] = 0;
-	} else {
-		markerCount[dataKey] = (markerCount[dataKey] + 1) || 1;
+		
+		updateMarkerCountPill(type);
+		saveTransparentMarkers();
 	}
-
-	return marker;
-};
-
-window.setMarker = function (icon, tooltip) {
-	return {icon : icon, riseOnHover : true};
-};
-
-window.getLatLngKey = function (lat, lng) {
-	return lat + ';' + lng;
-};
-
-window.isMarkerInvisible = function (mapPath, lat, lng) {
-	return invisibleMarkers[mapPath].indexOf(getLatLngKey(lat, lng)) > -1;
-};
-
-window.toggleOpacity = function (event, mapPath) {
-	var key = getLatLngKey(event.latlng.lat, event.latlng.lng);
-
-	if (event.target && event.target.options.opacity === 1.0) {
-		event.target.setOpacity(invisibleMarkerOpacity);
-		invisibleMarkers[mapPath].push(key);
-	} else {
-		event.target.setOpacity(1.0);
-		invisibleMarkers[mapPath].splice(invisibleMarkers[mapPath].indexOf(key), 1);
+	
+	function toggleMarkerTransparency(lat, lng, marker, type) {
+		const isTransparent = isMarkerTransparent(lat, lng);
+		setMarkerTransparency(lat, lng, marker, type, !isTransparent);
 	}
-
-	localStorage[mapPath] = JSON.stringify(invisibleMarkers[mapPath]);
-};
-
-window.updatePills = function(event, dataKey) {
-	if (event.target && event.target.options.opacity === 1.0) {
-		markerCount[dataKey] = (markerCount[dataKey] + 1) || 1;
-	} else {
-		markerCount[dataKey] = (markerCount[dataKey] - 1) || 0;
+	
+	function updateMarkerCountPill(type) {
+		$('ul.key:not(.controls) > li:not(.none) > i.' + type + ' ~ :last').text(markerCount[type]);
 	}
-	$('ul.key:not(.controls) > li:not(.none) > i.'+dataKey+' ~ :last').text(markerCount[dataKey]);
-};
-
-window.resetInvisibleMarkers = function() {
-	var mapKey = 'markers-' + map_path + '-hidden';
-	invisibleMarkers[mapKey] = [];
-	localStorage[mapKey] = JSON.stringify(invisibleMarkers[mapKey]);
-	location.reload();
-};
-
-window.icons = {};
-window.markers = {};
-window.invisibleMarkers = {};
-window.markerCount = {};
-window.notes = {};
-
-var icons = window.icons;
-var markers = window.markers;
-var invisibleMarkerOpacity = 0.25;
-
-window.processData = function (data) {
-	var mapKey = 'markers-' + map_path + '-hidden';
-
-	if(!localStorage[mapKey]) {
-		localStorage[mapKey] = JSON.stringify([]);
+	
+	// marker creation
+	
+	function createLeafletMarker(markerInfo) {
+		const type = markerInfo.type;
+		const icon = window.icons[type] ?? window.icons['objective-primary']; // todo
+		const label = markerInfo.label;
+		const popup = "<h1>" + label + "</h1>" + (markerInfo.popup ? markerInfo.popup + "<br>" : "") + "<small>" + $.t(`marker.${type}.desc`) + "</small>";
+		const marker = L.marker(markerInfo.position, {icon, riseOnHover: true});
+		
+		const lat = marker.getLatLng().lat;
+		const lng = marker.getLatLng().lng;
+		
+		marker.bindLabel(label);
+		marker.bindPopup(popup, {});
+		
+		marker.on('contextmenu', () =>
+			toggleMarkerTransparency(lat, lng, marker, type));
+		
+		if(isMarkerTransparent(lat, lng)) {
+			marker.setOpacity(transparentMarkerOpacity);
+			markerCount[type]--;
+		}
+		
+		return marker;
 	}
-	invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
-
-	var notesKey = 'notes'+map_path;
-	if(!localStorage[notesKey]) {
-		localStorage[notesKey] = JSON.stringify([]);
+	
+	const runScript = function(url, options) {
+		return $.ajax($.extend(options || {}, {
+			dataType: "script",
+			cache: false, // todo change this back to true when releasing
+			url: url
+		}));
 	}
-	notes[map_path] = JSON.parse(localStorage[notesKey]);
-
-	Object.keys(data).forEach(function (dataKey) {
-		var items = data[dataKey];
-		var groupItems = [];
-		items.forEach(function (item) {
-			if (item.popupTitle == null) {
-				item.popupTitle = item.label;
-			}
-			item.coords.forEach(function (coord) {
-				groupItems.push(createMarker(coord, icons[dataKey], item.label, '<h1>' + item.popupTitle + '</h1>' + item.popup, dataKey));
-			});
+	
+	function addIcon(name, size) {
+		icons[name] = L.icon({
+			iconUrl: `/files/images/icons/${name}.png`,
+			iconSize: size ?? [48, 48]
 		});
-
-		markers[dataKey] = L.layerGroup(groupItems);
-	});
-};
-
-
-					
-icons.gearbit = L.icon({
-	iconUrl  : '../files/images/icons/deadeye.png',
-	iconSize : [32, 32]
-});
-
-
-icons.gearbitdrop = L.icon({
-	iconUrl  : '../files/images/icons/letter_from_home.png',
-	iconSize : [32, 32]
-});
-
-
-icons.key = L.icon({
-	iconUrl  : '../files/images/icons/last_letter.png',
-	iconSize : [32, 32]
-});
-
-
-icons.module = L.icon({
-	iconUrl  : '../files/images/icons/duty_poster.png',
-	iconSize : [32, 32]
-});
-
-
-icons.gun = L.icon({
-	iconUrl  : '../files/images/icons/letter_to_home.png',
-	iconSize : [32, 32]
-});
-
-
-icons.outfit = L.icon({
-	iconUrl  : '../files/images/icons/misc_docs.png',
-	iconSize : [32, 32]
-});
-
-
-icons.monolith = L.icon({
-	iconUrl  : '../files/images/icons/sniper_reports.png',
-	iconSize : [32, 32]
-});
-
-icons.star = L.icon({
-	iconUrl  : '../files/images/icons/star.png',
-	iconSize : [28, 28]
-});
-
-icons.soundmask = L.icon({
-	iconUrl  : '../files/images/icons/soundmask.png',
-	iconSize : [28, 28]
-});
-
+	}
+	
+	function initIcons() {
+		for(const name of markerTypes) {
+			addIcon(name);
+		}
+	}
+	
+	function initMapMarkers() {
+		loadTransparentMarkers();
+		loadNotes();
+		
+		const layers = {};
+		
+		for(const type of markerTypes) {
+			layers[type] = [];
+		}
+		
+		for(const markerInfo of window.map.markers) {
+			const type = markerInfo.type;
+			window.markerCount[type] ??= 0;
+			window.markerCount[type]++;
+			
+			const marker = createLeafletMarker(markerInfo);
+			layers[type] ??= [];
+			layers[type].push(marker);
+		}
+		
+		for(const type in layers) {
+			const layer = layers[type];
+			window.layers[type] = L.layerGroup(layer);
+		}
+	}
+	
+	function initPageTitle() {
+		// it's janky, but it works :D
+		const mapTitle = $.t(`maps.${window.map.name}`).replace('<br>', ' ');
+		const pageTitle = $.t('home.title');
+		$(() => document.title = `${mapTitle} - ${pageTitle}`);
+	}
+	
+	async function init() {
+		const namespace = location.pathname.match(/\/(\w+)\/?$/)[1];
+		const mapName = namespaceMap[namespace];
+		
+		await $.i18n.init(i18noptions);
+		await new Promise(resolve => $.i18n.loadNamespace(mapName, resolve));
+		
+		await runScript('/files/scripts/mapdata.js');
+		await runScript(`/files/scripts/mapdata/${mapName}.js`);
+		
+		initIcons();
+		initMapMarkers();
+		initPageTitle();
+		
+		await runScript(`/files/scripts/custom.js`);
+		
+		$(document).i18n();
+	}
+	
+	init().then(() => console.log('initialization complete'));
+})();
