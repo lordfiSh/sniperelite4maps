@@ -21,7 +21,7 @@
 	
 	let isInTransition = false;
 	let transitionPromise = null;
-	let currentImage = localStorage['start-page-background'] ?? '/files/images/backgrounds/m01-san-celini-island.png';
+	let currentImage = localStorage['start-page-background'] ?? '/files/images/backgrounds/m01-san-celini-island.jpg';
 	let nextImage = '';
 	let lastRequestPath = '';
 	let lastRequest = 0;
@@ -67,7 +67,7 @@
 	$('#nav li').each((_, item) => {
 		const mapName = $(item).attr('data-map-name');
 		$(item).on('mouseover', async () => {
-			await setBackground(`/files/images/backgrounds/${mapName}.png`);
+			await setBackground(`/files/images/backgrounds/${mapName}.jpg`);
 		})
 	})
 	
