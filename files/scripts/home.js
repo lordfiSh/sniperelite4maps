@@ -68,8 +68,8 @@
 		const mapName = $(item).attr('data-map-name');
 		$(item).on('mouseover', async () => {
 			await setBackground(`/files/images/backgrounds/${mapName}.jpg`);
-		})
-	})
+		});
+	});
 	
 	async function init() {
 		await $.i18n.init(i18noptions);

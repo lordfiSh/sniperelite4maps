@@ -330,7 +330,7 @@ $(function() {
 	window.isMarkerGroupEnabled = isMarkerGroupEnabled;
 	
 	$('ul.key:not(.controls)').on('click', 'li:not(.none)', function() {
-		toggleMarkerGroup($(this).find('i').attr('class'))
+		toggleMarkerGroup($(this).find('i').attr('class'));
 	});
 	
 	function initHideAllButton() {
