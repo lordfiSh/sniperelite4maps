@@ -628,7 +628,7 @@ i.objective-exit { background-image:url('../images/icons/objective-exit.png'); }
 	filter: drop-shadow(0px 0px 3px black);
 	-webkit-filter: drop-shadow(0px 0px 3px black);
 }
-.leaflet-container {
+body, .leaflet-container {
 	background: #222;
 }
 .leaflet-label {
