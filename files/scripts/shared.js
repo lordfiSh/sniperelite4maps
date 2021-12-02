@@ -24,7 +24,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		l: 'dlc4-obliteration',
 		m: 'ow01-compound',
 		n: 'ow02-railyard',
-	}
+	};
 	
 	const markerTypes = window.markerTypes = [
 		'deadeye-target',
@@ -133,7 +133,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 			cache: false, // todo change this back to true when releasing
 			url: url
 		}));
-	}
+	};
 	
 	function addIcon(name, size) {
 		icons[name] = L.icon({

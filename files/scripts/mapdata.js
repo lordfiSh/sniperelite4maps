@@ -3,7 +3,7 @@ function getMarkerLabel(namespace, type, id) {
 	
 	if(!id) return typeLabel;
 	
-	const translationPath = `${namespace}:${type}.${Math.trunc(id)}.label`
+	const translationPath = `${namespace}:${type}.${Math.trunc(id)}.label`;
 	const translation = $.t(translationPath);
 	const translated = translation !== translationPath;
 	
@@ -18,13 +18,13 @@ function getMarkerPopup(namespace, type, id) {
 	
 	if(!id) return "";//typePopup;
 	
-	let translationPath = `${namespace}:${type}.${id}.desc`
+	let translationPath = `${namespace}:${type}.${id}.desc`;
 	
 	// id 2.1 will expand to 'ns:type.2.desc.1'
 	const base = Math.trunc(id);
 	if(base !== id) {
-		const sub = (id - base).toFixed(1).substr(2)
-		translationPath = `${namespace}:${type}.${base}.desc.${sub}`
+		const sub = (id - base).toFixed(1).substr(2);
+		translationPath = `${namespace}:${type}.${base}.desc.${sub}`;
 	}
 	
 	const translation = $.t(translationPath);
