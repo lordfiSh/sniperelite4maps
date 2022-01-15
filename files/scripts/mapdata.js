@@ -36,9 +36,9 @@ function getMarkerPopup(namespace, type, id) {
 	return translation;
 }
 
-function makeMarker(type, id, y, x, label, popup) {
+function makeMarker(type, id, y, x, icon) {
 	const position = [y ?? 0, x ?? 0];
-	label ??= getMarkerLabel(window.map.name, type, id);
-	popup ??= getMarkerPopup(window.map.name, type, id);
-	return {type, position, label, popup};
+	const label = getMarkerLabel(window.map.name, type, id);
+	const popup = getMarkerPopup(window.map.name, type, id);
+	return {type, position, label, popup, icon};
 }
