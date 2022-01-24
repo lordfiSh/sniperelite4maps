@@ -145,6 +145,10 @@
     "2": {
       "label": "Schädlingsbekämpfung",
       "desc": "Töte die Nazioffiziere, egal, wie (0/4)"
+    },
+    "3": {
+      "label": "Pflichterfüllung",
+      "desc": "Entkomme von der Insel"
     }
   },
   "objective-optional": {
@@ -155,12 +159,6 @@
     "2": {
       "label": "Kontrollpunkt in Kontrolle",
       "desc": "Räume den Checkpoint"
-    }
-  },
-  "objective-exit": {
-    "1": {
-      "label": "Pflichterfüllung",
-      "desc": "Entkomme von der Insel"
     }
   }
 }

@@ -145,6 +145,10 @@
     "2": {
       "label": "Pest Control",
       "desc": "Kill Nazi Officers by any means"
+    },
+    "3": {
+      "label": "Duty Discharged",
+      "desc": "Escape from the Island"
     }
   },
   "objective-optional": {
@@ -155,12 +159,6 @@
     "2": {
       "label": "Choking the Checkpoint",
       "desc": "Clear the Checkpoint"
-    }
-  },
-  "objective-exit": {
-    "1": {
-      "label": "Duty Discharged",
-      "desc": "Escape from the Island"
     }
   }
 }

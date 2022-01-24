@@ -56,18 +56,16 @@ window.map.markers = [
 	makeMarker('generator', 0, 65.984, 155.266),
 	
 	makeMarker('objective-primary', 1, 134.563, 122.453),
-	
 	makeMarker('objective-primary', 2, 106.422, 98.781), // Hans Aegerter
 	makeMarker('objective-primary', 2, 46.531, 118.625), // Rudolf Hayler
 	makeMarker('objective-primary', 2, 81.078, 138.281), // Oskar Pletcher
 	makeMarker('objective-primary', 2, 106.719, 133.500), // Frank Drexler
+	makeMarker('objective-primary', 3, 96.438, 111.656, 'objective-exit'),
+	makeMarker('objective-primary', 3, 41.063, 118.516, 'objective-exit'),
 	
 	makeMarker('objective-optional', 1, 83.281, 74.250),
 	makeMarker('objective-optional', 1, 83.453, 138.734),
 	makeMarker('objective-optional', 1, 135.469, 120.141),
 	
 	makeMarker('objective-optional', 2, 80.688, 122.313),
-	
-	makeMarker('objective-exit', 1, 96.438, 111.656),
-	makeMarker('objective-exit', 1, 41.063, 118.516)
 ];

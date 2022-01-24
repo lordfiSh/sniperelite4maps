@@ -54,12 +54,11 @@ window.map.markers = [
 	makeMarker('generator', 0, 53.781,67.250),
 	makeMarker('generator', 0, 103.281,59.000),
 	
-	makeMarker('objective-primary', 1, 122.047,59.578),
+	makeMarker('objective-primary', 1.1, 122.047,59.578),
+	makeMarker('objective-primary', 1.3, 79.031,104.031, 'objective-exit'),
 	
 	makeMarker('objective-optional', 1, 123.375,61.203),
-	makeMarker('objective-optional', 2, 83.406,66.906),
-	makeMarker('objective-optional', 2, 46.656,82.969),
-	
-	makeMarker('objective-exit', 1, 99.391,55.016),
-	makeMarker('objective-exit', 1, 79.031,104.031),
+	makeMarker('objective-optional', 2.1, 83.406,66.906),
+	makeMarker('objective-optional', 2.1, 46.656,82.969),
+	makeMarker('objective-optional', 2.2, 99.391,55.016, 'objective-exit'),
 ];
