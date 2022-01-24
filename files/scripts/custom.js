@@ -229,14 +229,12 @@ $(function() {
 	map.on('popupclose', closePopup);
 	
 	function applyLayerVisibility() {
-		const data = localStorage['markers-' + window.map.name];
-		if(data) {
-			const layerVisibility = JSON.parse(data);
-			for(const [layer, visible] of Object.entries(layerVisibility)) {
-				if(!visible) {
-					$('i.' + layer).parent().addClass('layer-disabled');
-					map.removeLayer(window.layers[layer]);
-				}
+		const storageKey = 'markers-' + window.map.name;
+		const layerVisibility = parseFromLocalStorage(storageKey, {'other': false});
+		for(const [layer, visible] of Object.entries(layerVisibility)) {
+			if(!visible) {
+				$('i.' + layer).parent().addClass('layer-disabled');
+				map.removeLayer(window.layers[layer]);
 			}
 		}
 	}
@@ -299,7 +297,7 @@ $(function() {
 	
 	function saveMarkerGroupVisibility(groupName, visible) {
 		const storageKey = 'markers-' + window.map.name;
-		const enabledMarkers = parseFromLocalStorage(storageKey, {});
+		const enabledMarkers = parseFromLocalStorage(storageKey, {'other': false});
 		enabledMarkers[groupName] = visible;
 		localStorage[storageKey] = JSON.stringify(enabledMarkers);
 	}
@@ -387,9 +385,11 @@ $(function() {
 			sidebarToggleDiv.addClass('show-sidebar');
 			sidebarToggleDiv.animate({left: '0px'}, duration);
 			sidebarContainerDiv.animate({width: '15px'}, duration);
-			mapDiv.animate({left: '0px'}, {duration,
+			mapDiv.animate({left: '0px'}, {
+				duration,
 				step: () => map.invalidateSize(),
-				complete: () => map.invalidateSize()});
+				complete: () => map.invalidateSize()
+			});
 			localStorage['hide-sidebar'] = true;
 		}
 		
@@ -397,9 +397,11 @@ $(function() {
 			stopSidebarAnimation();
 			sidebarToggleDiv.animate({left: mapLeft + 'px'}, duration);
 			sidebarToggleDiv.removeClass('show-sidebar');
-			mapDiv.animate({left: mapLeft + 'px'}, {duration,
+			mapDiv.animate({left: mapLeft + 'px'}, {
+				duration,
 				step: () => map.invalidateSize(),
-				complete: () => map.invalidateSize()});
+				complete: () => map.invalidateSize()
+			});
 			sidebarContainerDiv.animate({width: sidebarWidth + 'px'}, duration, function() {
 				infoContainerDiv.removeClass('full-width');
 			});
