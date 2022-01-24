@@ -1,10 +1,13 @@
 L.Icon.Default.imagePath = '/files/images/leaflet';
 
 (() => {
-	// each of these have the marker type as index
-	window.icons = {};
+	// these are indexed by the marker category
 	window.layers = {};
 	window.markerCount = {};
+	
+	// cache for leaflet icons
+	window.icons = {};
+	
 	// list of coordinate strings of hidden markers (current map only)
 	window.transparentMarkers = [];
 	window.notes = [];
@@ -27,18 +30,48 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	};
 	
 	const markerTypes = window.markerTypes = [
-		'deadeye-target',
 		'letter-from-home',
 		'letter-to-home',
 		'last-letter',
+		'misc-document',
 		'duty-roster',
 		'sniper-report',
-		'misc-document',
-		'generator',
+		
 		'objective-primary',
 		'objective-optional',
-		'objective-exit'
+		'deadeye-target',
+		
+		'generator',
+		'other'
 	];
+	
+	const iconTypes = window.iconTypes = {
+		'letter-from-home': { size: [48, 48] },
+		'letter-to-home': { size: [48, 48] },
+		'last-letter': { size: [48, 48] },
+		'misc-document': { size: [48, 48] },
+		'duty-roster': { size: [48, 48] },
+		'sniper-report': { size: [48, 48] },
+		
+		'objective-primary': { size: [48, 48] },
+		'objective-optional': { size: [48, 48] },
+		'objective-exit': { size: [48, 48] },
+		'deadeye-target': { size: [48, 48] },
+		'generator': { size: [48, 48] },
+		
+		'car-civilian': { size: [32, 32] },
+		'car-transport': { size: [32, 32] },
+		'car-tank': { size: [32, 32] },
+		'car-tank-big': { size: [32, 32] },
+		'turret-pillbox': { size: [32, 32] },
+		'turret-panther': { size: [32, 32] },
+		'rail': { size: [32, 32] },
+		'boat': { size: [32, 32] },
+		'plane': { size: [32, 32] },
+		'pin': { size: [32, 32] },
+		//'generator': { size: [32, 32] },
+		'loot-crate': { size: [32, 32] },
+	};
 	
 	const transparentMarkerOpacity = 0.5;
 	
@@ -105,7 +138,7 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 	
 	function createLeafletMarker(markerInfo) {
 		const type = markerInfo.type;
-		const icon = window.icons[type] ?? window.icons['objective-primary']; // todo
+		const icon = getIcon(markerInfo.icon ?? type);
 		const label = markerInfo.label;
 		const popup = "<h1>" + label + "</h1>" + (markerInfo.popup ? markerInfo.popup + "<br>" : "") + "<small>" + $.t(`marker.${type}.desc`) + "</small>";
 		const marker = L.marker(markerInfo.position, {icon, riseOnHover: true});
@@ -127,6 +160,18 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		return marker;
 	}
 	
+	function getIcon(name) {
+		if(icons[name]) return icons[name];
+		
+		const info = iconTypes[name];
+		if(!info) console.log("unknown icon type: " + name)
+		
+		return icons[name] = L.icon({
+			iconUrl: `/files/images/icons/${name}.png`,
+			iconSize: info?.size ?? [32, 32]
+		});
+	}
+	
 	const runScript = function(url, options) {
 		return $.ajax($.extend(options || {}, {
 			dataType: "script",
@@ -134,19 +179,6 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 			url: url
 		}));
 	};
-	
-	function addIcon(name, size) {
-		icons[name] = L.icon({
-			iconUrl: `/files/images/icons/${name}.png`,
-			iconSize: size ?? [48, 48]
-		});
-	}
-	
-	function initIcons() {
-		for(const name of markerTypes) {
-			addIcon(name);
-		}
-	}
 	
 	function initMapMarkers() {
 		loadTransparentMarkers();
@@ -159,13 +191,13 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		}
 		
 		for(const markerInfo of window.map.markers) {
-			const type = markerInfo.type;
-			window.markerCount[type] ??= 0;
-			window.markerCount[type]++;
+			const category = markerInfo.category;
+			window.markerCount[category] ??= 0;
+			window.markerCount[category]++;
 			
 			const marker = createLeafletMarker(markerInfo);
-			layers[type] ??= [];
-			layers[type].push(marker);
+			layers[category] ??= [];
+			layers[category].push(marker);
 		}
 		
 		for(const type in layers) {
@@ -191,7 +223,6 @@ L.Icon.Default.imagePath = '/files/images/leaflet';
 		await runScript('/files/scripts/mapdata.js');
 		await runScript(`/files/scripts/mapdata/${mapName}.js`);
 		
-		initIcons();
 		initMapMarkers();
 		initPageTitle();
 		
