@@ -9,7 +9,7 @@ window.map = {
 }
 
 window.map.markers = [
-	makeMarker('letter-from-home', 1, 115.766,60.406),
+	makeMarker('letter-from-home', 1, 117.594,66.688),
 	makeMarker('letter-from-home', 2, 115.531,89.438),
 	makeMarker('letter-from-home', 3, 76.344,83.156),
 	makeMarker('letter-from-home', 4, 122.031,95.594),
