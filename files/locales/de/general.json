@@ -65,7 +65,7 @@
     "generator": "Generatoren",
     "objective-primary": "Hauptziele",
     "objective-optional": "Optionale Ziele",
-    "objective-exit": "Missions-Ausgänge"
+    "other": "Sonstiges"
   },
   "marker": {
     "letter-from-home": {
@@ -111,6 +111,34 @@
     "objective-exit": {
       "label": "Missions-Ausgang",
       "desc": "Begib dich hier hin, nachdem du alle Hauptziele abgeschlossen hast, um die Misison zu beenden."
+    },
+    "car-civilian": {
+      "label": "Zivilfahrzeug",
+      "desc": ""
+    },
+    "car-transport": {
+      "label": "Transportfahrzeug",
+      "desc": ""
+    },
+    "car-tank": {
+      "label": "Panzer",
+      "desc": ""
+    },
+    "turret-panther": {
+      "label": "Pantherturm",
+      "desc": ""
+    },
+    "turret-pillbox": {
+      "label": "Ringstand",
+      "desc": ""
+    },
+    "pin": {
+      "label": "Markierbares Objekt",
+      "desc": ""
+    },
+    "loot-crate": {
+      "label": "Durchsuchbare Kiste",
+      "desc": ""
     }
   }
 }

@@ -65,7 +65,7 @@
     "generator": "Generators",
     "objective-primary": "Primary Objectives",
     "objective-optional": "Optional Objectives",
-    "objective-exit": "Mission Exits"
+    "other": "Other Markers"
   },
   "marker": {
     "letter-from-home": {
@@ -111,6 +111,34 @@
     "objective-exit": {
       "label": "Mission Exit",
       "desc": "Go here after completing all primary objectives to finish the mission."
+    },
+    "car-civilian": {
+      "label": "Civilian Vehicle",
+      "desc": ""
+    },
+    "car-transport": {
+      "label": "Transport Vehicle",
+      "desc": ""
+    },
+    "car-tank": {
+      "label": "Tank",
+      "desc": ""
+    },
+    "turret-panther": {
+      "label": "Pantherturm",
+      "desc": ""
+    },
+    "turret-pillbox": {
+      "label": "Pillbox",
+      "desc": ""
+    },
+    "pin": {
+      "label": "Taggable Object",
+      "desc": ""
+    },
+    "loot-crate": {
+      "label": "Searchable Crate",
+      "desc": ""
     }
   }
 }

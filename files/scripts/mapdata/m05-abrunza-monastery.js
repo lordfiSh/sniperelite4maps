@@ -60,6 +60,8 @@ window.map.markers = [
 	
 	makeMarker('objective-primary', 1, 92.906, 192.282),
 	makeMarker('objective-primary', 2, 78.156, 133.156),
+	makeMarker('objective-primary', 3, 53.984, 161.156, 'objective-exit'),
+	makeMarker('objective-primary', 3, 128.843, 161.094, 'objective-exit'),
 	
 	makeMarker('objective-optional', 1, 72.500, 130.469),
 	makeMarker('objective-optional', 1, 118.593, 123.312),
@@ -74,7 +76,4 @@ window.map.markers = [
 	makeMarker('objective-optional', 3, 134.953, 128.656),
 	makeMarker('objective-optional', 3, 84.125, 188.406),
 	makeMarker('objective-optional', 3, 110.312, 190.500),
-	
-	makeMarker('objective-exit', 1, 53.984, 161.156),
-	makeMarker('objective-exit', 1, 128.843, 161.094)
 ];

@@ -1,9 +1,11 @@
-function getMarkerLabel(namespace, type, id) {
-	const typeLabel = $.t(`marker.${type}.label`);
+function getMarkerLabel(namespace, category, type, id) {
+	const typeLabel = category === 'other'
+		? $.t(`marker.${type}.label`)
+		: $.t(`marker.${category}.label`);
 	
 	if(!id) return typeLabel;
 	
-	const translationPath = `${namespace}:${type}.${Math.trunc(id)}.label`;
+	const translationPath = `${namespace}:${category}.${Math.trunc(id)}.label`;
 	const translation = $.t(translationPath);
 	const translated = translation !== translationPath;
 	
@@ -13,18 +15,16 @@ function getMarkerLabel(namespace, type, id) {
 	return `${typeLabel} ${id}: ${translation}`;
 }
 
-function getMarkerPopup(namespace, type, id) {
-	const typePopup = $.t(`marker.${type}.desc`);
+function getMarkerPopup(namespace, category, type, id) {
+	if(!id) return "";
 	
-	if(!id) return "";//typePopup;
+	let translationPath = `${namespace}:${category}.${id}.desc`;
 	
-	let translationPath = `${namespace}:${type}.${id}.desc`;
-	
-	// id 2.1 will expand to 'ns:type.2.desc.1'
+	// id 2.1 will expand to 'ns:category.2.desc.1'
 	const base = Math.trunc(id);
 	if(base !== id) {
 		const sub = (id - base).toFixed(1).substr(2);
-		translationPath = `${namespace}:${type}.${base}.desc.${sub}`;
+		translationPath = `${namespace}:${category}.${base}.desc.${sub}`;
 	}
 	
 	const translation = $.t(translationPath);
@@ -36,9 +36,10 @@ function getMarkerPopup(namespace, type, id) {
 	return translation;
 }
 
-function makeMarker(type, id, y, x, icon) {
+function makeMarker(category, id, y, x, type) {
+	type ??= category;
 	const position = [y ?? 0, x ?? 0];
-	const label = getMarkerLabel(window.map.name, type, id);
-	const popup = getMarkerPopup(window.map.name, type, id);
-	return {type, position, label, popup, icon};
+	const label = getMarkerLabel(window.map.name, category, type, id);
+	const popup = getMarkerPopup(window.map.name, category, type, id);
+	return {category, position, label, popup, type};
 }
