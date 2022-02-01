@@ -124,6 +124,14 @@
       "label": "Panzer",
       "desc": ""
     },
+    "boat": {
+      "label": "Boot",
+      "desc": ""
+    },
+    "plane": {
+      "label": "Flugzeug",
+      "desc": ""
+    },
     "turret-panther": {
       "label": "Pantherturm",
       "desc": ""
