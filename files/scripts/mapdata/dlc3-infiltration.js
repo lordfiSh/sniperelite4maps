@@ -36,7 +36,7 @@ window.map.markers = [
 	
 	makeMarker('duty-roster', 1, 127.750,131.344),
 	makeMarker('duty-roster', 2, 96.063,133.250),
-	makeMarker('duty-roster', 3, 114.109,114.734),
+	makeMarker('duty-roster', 3, 137.500,119.000),
 	makeMarker('duty-roster', 4, 112.313,103.031),
 	
 	makeMarker('sniper-report', 1, 114.719,140.281),
