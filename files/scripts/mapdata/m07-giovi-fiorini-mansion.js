@@ -49,6 +49,7 @@ window.map.markers = [
 	makeMarker('generator', 0, 92.219,91.297),
 	makeMarker('generator', 0, 95.734,105.625),
 	makeMarker('generator', 0, 97.031,69.094),
+	makeMarker('generator', 0, 140.188,147.000),
 	
 	makeMarker('objective-primary', 1.1, 139.031,74.141),
 	makeMarker('objective-primary', 1.2, 85.016,107.500),
