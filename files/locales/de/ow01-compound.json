@@ -2,135 +2,135 @@
   "letter-from-home": {
     "1": {
       "label": "Il Duces Geburtstag",
-      "desc": ""
+      "desc": "Liegt auf einem kleinen Tisch im oberen Stockwerk."
     },
     "2": {
       "label": "Zwischen Alliierten und Deutschen",
-      "desc": ""
+      "desc": "Liegt auf einem Tisch."
     },
     "3": {
       "label": "Das Picknick",
-      "desc": ""
+      "desc": "Liegt auf einem Tisch neben einem Radio."
     },
     "4": {
       "label": "Spione",
-      "desc": ""
+      "desc": "Liegt auf einem Bett."
     },
     "5": {
       "label": "Der Schatten",
-      "desc": ""
+      "desc": "Liegt auf einer Liege."
     }
   },
   "letter-to-home": {
     "1": {
       "label": "Schokolade",
-      "desc": ""
+      "desc": "Liegt auf einem kleinen Tisch."
     },
     "2": {
       "label": "Bernadetta",
-      "desc": ""
+      "desc": "Liegt auf eine hölzernen Kiste."
     },
     "3": {
       "label": "Scugnizzi",
-      "desc": ""
+      "desc": "Liegt auf eine hölzernen Kiste."
     },
     "4": {
       "label": "Väter und Töchter",
-      "desc": ""
+      "desc": "Liegt auf einem Schreibtisch im oberen Stockwerk."
     },
     "5": {
       "label": "Verteufelter Kommunismus",
-      "desc": ""
+      "desc": "Liegt auf einem Tisch."
     }
   },
   "last-letter": {
     "1": {
       "label": "Das Dritte Rom",
-      "desc": ""
+      "desc": "Getragen von Stefano Ottolini (Infanterie)."
     },
     "2": {
       "label": "An den Herrn Pfarrer",
-      "desc": ""
+      "desc": "Getragen von Madesto Sanna (Infanterie)."
     },
     "3": {
       "label": "Ein reines Italien",
-      "desc": ""
+      "desc": "Getragen von ??? (Infanterie)."
     },
     "4": {
       "label": "Mein ganzes Leben",
-      "desc": ""
+      "desc": "Getragen von Valentino Grasso (Infanterie)."
     },
     "5": {
       "label": "Der Pflug beackert das Feld",
-      "desc": ""
+      "desc": "Getragen von ??? (Infanterie)."
     }
   },
   "misc-document": {
     "1": {
       "label": "Geheimdienstbericht: Martone Tarsia",
-      "desc": ""
+      "desc": "Liegt auf einem kleinen Tisch am Fuß des Bettes im oberen Stockwerk."
     },
     "2": {
       "label": "Geheimdienstbericht: Eduardo Golino",
-      "desc": ""
+      "desc": "Liegt auf einem Schränkchen."
     },
     "3": {
       "label": "Geheimdienstbericht: Clara Tognazzi",
-      "desc": ""
+      "desc": "Liegt im Kellersafe."
     },
     "4": {
       "label": "Dokument \"Strategie Operation Inferno\"",
-      "desc": ""
+      "desc": "Getragen von OVRA Kommandant Alberzo Vidius (Offizier)."
     },
     "5": {
       "label": "Dokument \"Standorte schwerer Waffen\"",
-      "desc": ""
+      "desc": "Kann am Körper des Partisanenspions gefunden werden."
     }
   },
   "duty-roster": {
     "1": {
       "label": "Operativer Überblick 36",
-      "desc": ""
+      "desc": "Getragen von Leutnant Ottavio Bianchi (Offizier)."
     },
     "2": {
       "label": "Operativer Überblick 35",
-      "desc": ""
+      "desc": "Getragen von Leutnant Tonio Colombo (Offizier)."
     },
     "3": {
       "label": "Operativer Überblick 34",
-      "desc": ""
+      "desc": "Getragen von Leutnant ??? (Offizier)."
     },
     "4": {
       "label": "Operativer Überblick 33",
-      "desc": ""
+      "desc": "Getragen von Leutnant Lando Costa (Offizier)."
     }
   },
   "sniper-report": {
     "1": {
       "label": "Obergefreiter Hugo Esser",
-      "desc": ""
+      "desc": "Liegt auf einem Tisch."
     },
     "2": {
       "label": "Soldat Torsten Haupt",
-      "desc": ""
+      "desc": "Liegt auf einem Herd."
     },
     "3": {
       "label": "Gefreiter Ralf Benn",
-      "desc": ""
+      "desc": "Liegt auf einem Schlafsack."
     }
   },
   "deadeye-target": {
     "1": {
       "label": "Steinadler",
-      "desc": ""
+      "desc": "Auf den Dach des Hauses."
     },
     "2": {
       "label": "Steinadler",
-      "desc": ""
+      "desc": "Auf der Spitze des Turms."
     },
     "3": {
       "label": "Steinadler",
-      "desc": ""
+      "desc": "Auf den Dach des Hauses."
     }
   },
   "objective-primary": {
