@@ -2,165 +2,173 @@
   "letter-from-home": {
     "1": {
       "label": "The Leader's Birthday",
-      "desc": ""
+      "desc": "Found on a small table on the upper floor."
     },
     "2": {
       "label": "Caught Between the Allies and Germans",
-      "desc": ""
+      "desc": "Found on a table."
     },
     "3": {
       "label": "The Picnic",
-      "desc": ""
+      "desc": "Found on a table next to a radio."
     },
     "4": {
       "label": "Spies",
-      "desc": ""
+      "desc": "Found on a bunk bed."
     },
     "5": {
       "label": "The Shadow",
-      "desc": ""
+      "desc": "Found on a cot."
     }
   },
   "letter-to-home": {
     "1": {
       "label": "Chocolate",
-      "desc": ""
+      "desc": "Found on a small table."
     },
     "2": {
       "label": "Bernadetta",
-      "desc": ""
+      "desc": "Found on a wooden crate."
     },
     "3": {
       "label": "Scugnizzi",
-      "desc": ""
+      "desc": "Found on a wooden crate."
     },
     "4": {
       "label": "Fathers and Daughters",
-      "desc": ""
+      "desc": "Found on a desk on the upper floor."
     },
     "5": {
       "label": "Satanic Communism",
-      "desc": ""
+      "desc": "Found on a table."
     }
   },
   "last-letter": {
     "1": {
       "label": "The Third Rome",
-      "desc": ""
+      "desc": "Carried by Stefano Ottolini (Infantry)."
     },
     "2": {
       "label": "To the Priest",
-      "desc": ""
+      "desc": "Carried by Madesto Sanna (Infantry)."
     },
     "3": {
       "label": "Pure Italy",
-      "desc": ""
+      "desc": "Carried by  (Infantry)."
     },
     "4": {
       "label": "My Whole Life",
-      "desc": ""
+      "desc": "Carried by Valentino Grasso (Infantry)."
     },
     "5": {
       "label": "The Plough Cuts the Field",
-      "desc": ""
+      "desc": "Carried by  (Infantry)."
     }
   },
   "misc-document": {
     "1": {
       "label": "Intelligence Report: Martone Tarsia",
-      "desc": ""
+      "desc": "Found on a small table at the foot of the bed, on the upper floor."
     },
     "2": {
       "label": "Intelligence Report: Eduardo Golino",
-      "desc": ""
+      "desc": "Found on a small cabinet."
     },
     "3": {
       "label": "Intelligence Report: Clara Tognazzi",
-      "desc": ""
+      "desc": "Found inside the safe in the basement."
     },
     "4": {
       "label": "Operation Inferno Strategy Document",
-      "desc": ""
+      "desc": "Carried by OVRA Commander Alberto Vidius (Officer)."
     },
     "5": {
       "label": "Heavy Weapons Location Document",
-      "desc": ""
+      "desc": "Found on the dead body of the Partisan spy."
     }
   },
   "duty-roster": {
     "1": {
       "label": "Operational Overview #36",
-      "desc": ""
+      "desc": "Carried by Lieutenant Ottavio Bianchi (Officer)."
     },
     "2": {
       "label": "Operational Overview #35",
-      "desc": ""
+      "desc": "Carried by Lieutenant Tonio Colombo (Officer)."
     },
     "3": {
       "label": "Operational Overview #34",
-      "desc": ""
+      "desc": "Carried by Lieutenant ??? (Officer)."
     },
     "4": {
       "label": "Operational Overview #33",
-      "desc": ""
+      "desc": "Carried by Lieutenant Lando Costa (Officer)."
     }
   },
   "sniper-report": {
     "1": {
       "label": "Obergefreiter Hugo Esser",
-      "desc": ""
+      "desc": "Found on a table."
     },
     "2": {
       "label": "Soldat Torsten Haupt",
-      "desc": ""
+      "desc": "Found on a stove."
     },
     "3": {
       "label": "Gefreiter Ralf Benn",
-      "desc": ""
+      "desc": "Found on the sleeping bag."
     }
   },
   "deadeye-target": {
     "1": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "On the roof of the house."
     },
     "2": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "On the highest corner of the tower."
     },
     "3": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "On the roof of the house."
     }
   },
   "objective-primary": {
     "1": {
-      "label": "",
-      "desc": ""
+      "label": "The Lost Spy",
+      "desc": "Learn the fate of the Partisan spy"
     },
     "2": {
-      "label": "",
-      "desc": ""
+      "label": "Death Warrant",
+      "desc": "Eliminate the OVRA Commander"
+    },
+    "3": {
+      "label": "Full Throttle",
+      "desc": "Destroy the Motor Pool"
+    },
+    "4": {
+      "label": "Transmission Terminated",
+      "desc": "Disable the Listening Post"
     }
   },
   "objective-optional": {
     "1": {
-      "label": "",
-      "desc": ""
+      "label": "Sniper Squad",
+      "desc": "Kill the Snipers (0/3)"
     },
     "2": {
-      "label": "",
-      "desc": ""
+      "label": "Bodes of Evidence",
+      "desc": "Find the Partisan Intel (0/3)"
     },
     "3": {
-      "label": "",
-      "desc": ""
+      "label": "Terror Trucks",
+      "desc": "Neutralize the  munition trucks (0/3)"
     }
   },
   "objective-exit": {
     "1": {
-      "label": "",
-      "desc": ""
+      "label": "Escape Velocity",
+      "desc": "Get to the Extraction Point"
     }
   }
 }

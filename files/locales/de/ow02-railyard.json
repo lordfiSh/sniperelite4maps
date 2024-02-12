@@ -144,23 +144,37 @@
   "objective-primary": {
     "1": {
       "label": "",
-      "desc": ""
-    },
-    "2": {
-      "label": "",
-      "desc": ""
+      "desc": {
+        "1": "",
+        "2": ""
+      }
     }
   },
   "objective-optional": {
     "1": {
       "label": "",
-      "desc": ""
+      "desc": {
+        "1": "",
+        "2": ""
+      }
     },
     "2": {
       "label": "",
       "desc": ""
     },
     "3": {
+      "label": "",
+      "desc": ""
+    },
+    "4": {
+      "label": "",
+      "desc": ""
+    },
+    "5": {
+      "label": "",
+      "desc": ""
+    },
+    "6": {
       "label": "",
       "desc": ""
     }

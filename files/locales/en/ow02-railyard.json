@@ -2,172 +2,181 @@
   "letter-from-home": {
     "1": {
       "label": "Anya",
-      "desc": ""
+      "desc": "Found on a chair, at the top of the watch tower"
     },
     "2": {
       "label": "Teeth",
-      "desc": ""
+      "desc": "Found on a desk on the upper floor."
     },
     "3": {
       "label": "Butterfly Collection",
-      "desc": ""
+      "desc": "Found on a desk."
     },
     "4": {
       "label": "Ignored",
-      "desc": ""
+      "desc": "Found on a table."
     },
     "5": {
       "label": "Every Mouthful",
-      "desc": ""
+      "desc": "Found on a small table."
     }
   },
   "letter-to-home": {
     "1": {
       "label": "Rules",
-      "desc": ""
+      "desc": "Found on a metal crate."
     },
     "2": {
       "label": "Otto's Shoes",
-      "desc": ""
+      "desc": "Found on a table."
     },
     "3": {
       "label": "The Old Couple",
-      "desc": ""
+      "desc": "Found on a cabinet."
     },
     "4": {
       "label": "Honey Bunny",
-      "desc": ""
+      "desc": "Found on a small table."
     },
     "5": {
       "label": "A Build Up of Steam",
-      "desc": ""
+      "desc": "Found on a desk."
     }
   },
   "last-letter": {
     "1": {
       "label": "Brotherly Love",
-      "desc": ""
+      "desc": "Carried by Tristan Gross (Infantry)."
     },
     "2": {
       "label": "Spelling",
-      "desc": ""
+      "desc": "Carried by Jörg Aulbach (Infantry)."
     },
     "3": {
       "label": "Perhaps...",
-      "desc": ""
+      "desc": "Carried by a soldier on the upper floor."
     },
     "4": {
       "label": "If I Fall",
-      "desc": ""
+      "desc": "Carried by a soldier."
     },
     "5": {
       "label": "An Understanding",
-      "desc": ""
+      "desc": "Carried by Burkhard Lücking (Jäger)."
     }
   },
   "misc-document": {
     "1": {
       "label": "Partisan News-Sheet",
-      "desc": ""
+      "desc": "Found on a bed on the ground floor."
     },
     "2": {
       "label": "Memo to Colonel Klappert",
-      "desc": ""
+      "desc": "Found on a desk on the ground floor."
     },
     "3": {
       "label": "Goliath Tech Specs",
-      "desc": ""
+      "desc": "Carried by Ernst Hewel (Jäger). It's the primary objective."
     },
     "4": {
       "label": "Shipping Manifest",
-      "desc": ""
+      "desc": "It's the optional objective."
     },
     "5": {
       "label": "Memorandum",
-      "desc": ""
+      "desc": "Carried by Colonel Lukas Klappert (Officer)."
     }
   },
   "duty-roster": {
     "1": {
       "label": "Operational Overview #40",
-      "desc": ""
+      "desc": "Carried by Senior Lieutenant Georg Lang (Officer)."
     },
     "2": {
       "label": "Operational Overview #39",
-      "desc": ""
+      "desc": "Carried by Senior Lieutenant Olaf Pfeiffer (Officer)."
     },
     "3": {
       "label": "Operational Overview #38",
-      "desc": ""
+      "desc": "Carried by Senior Lieutenant (Officer)."
     },
     "4": {
       "label": "Operational Overview #37",
-      "desc": ""
+      "desc": "Carried by Senior Lieutenant Meinrad Seidel (Officer)."
     }
   },
   "sniper-report": {
     "1": {
       "label": "Gefreiter Anton Mayer",
-      "desc": ""
+      "desc": "Found on a table."
     },
     "2": {
       "label": "Soldat Fritz Brack",
-      "desc": ""
+      "desc": "Found on a wooden crate."
     },
     "3": {
       "label": "Obsersoldat Siegfried Huber",
-      "desc": "Spelling Mistake"
+      "desc": "Found on a wooden crate."
     },
     "4": {
       "label": "Soldat Karsten Dahm",
-      "desc": ""
+      "desc": "Found on a wooden crate."
     },
     "5": {
       "label": "Soldat Herman Lang",
-      "desc": ""
+      "desc": "Found on a wooden crate next to a structure with a metal grating."
     }
   },
   "deadeye-target": {
     "1": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "In the window of the castle tower."
     },
     "2": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "On the ground, in the shrubs by the water."
     },
     "3": {
       "label": "Stone Eagle",
-      "desc": ""
+      "desc": "On top of the crane's control room, between the metal beams."
     }
   },
   "objective-primary": {
     "1": {
-      "label": "",
-      "desc": ""
-    },
-    "2": {
-      "label": "",
-      "desc": ""
+      "label": "Goliath Hunting",
+      "desc": {
+        "1": "Locate and recover Goliath Radio receiver / Destroy the train to cover the theft",
+        "2": "Locate the Technical Plans for the Goliath programme. Carried by Ernst Hewel (Jäger).",
+        "3": "Get to the Extraction Point"
+      }
     }
   },
   "objective-optional": {
     "1": {
-      "label": "",
-      "desc": ""
+      "label": "Weapons Recovery",
+      "desc": {
+        "1": "Locate Shipping Manifest",
+        "2": "Locate Weapons Shipment"
+      }
     },
     "2": {
-      "label": "",
-      "desc": ""
+      "label": "Proof of Kill",
+      "desc": "Kill the Colonel using the village hall as an HQ"
     },
     "3": {
-      "label": "",
+      "label": "Mechanized Menace",
+      "desc": "Deal with the Armoured Threat"
+    },
+    "4": {
+      "label": "Spanner in the Works",
+      "desc": "Sabotage the Transport Hub (0/4)"
+    },
+    "5": {
+      "label": "Divert Tanks",
       "desc": ""
-    }
-  },
-  "objective-exit": {
-    "1": {
-      "label": "",
+    },
+    "6": {
+      "label": "Destroy Tank",
       "desc": ""
     }
   }
