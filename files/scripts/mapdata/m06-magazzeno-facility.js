@@ -43,8 +43,8 @@ window.map.markers = [
 	
 	makeMarker('sniper-report', 1, 138.969, 98.203),
 	makeMarker('sniper-report', 2, 87.922, 72.688),
-	makeMarker('sniper-report', 3, 151.047, 77.875),
-	makeMarker('sniper-report', 4, 130.031, 62.078),
+	makeMarker('sniper-report', 3, 130.031, 62.078),
+	makeMarker('sniper-report', 4, 151.047, 77.875),
 	makeMarker('sniper-report', 5, 147.328, 67.859),
 	
 	makeMarker('deadeye-target', 1, 86.766, 123.422),
