@@ -63,6 +63,7 @@ window.map.markers = [
 	makeMarker('generator', 0, 92.234,73.578),
 	makeMarker('generator', 0, 111.172,121.391),
 	makeMarker('generator', 0, 71.766,123.531),
+	makeMarker('generator', 0, 59.297,97.500),
 	
 	makeMarker('other', 0, 68.969,115.375, 'car-civilian'),
 	makeMarker('other', 0, 66.969,115.969, 'car-transport'),
